@@ -1,0 +1,116 @@
+cabal: Entering directory '/tmp/cabal-tmp-1382/xmobar-0.24.5'
+Configuring xmobar-0.24.5...
+Building xmobar-0.24.5...
+Preprocessing executable 'xmobar' for xmobar-0.24.5...
+[ 1 of 59] Compiling XPMFile          ( dist/build/xmobar/xmobar-tmp/XPMFile.hs, dist/build/xmobar/xmobar-tmp/XPMFile.o )
+[ 2 of 59] Compiling StatFS           ( dist/build/xmobar/xmobar-tmp/StatFS.hs, dist/build/xmobar/xmobar-tmp/StatFS.o )
+[ 3 of 59] Compiling Plugins.Utils    ( src/Plugins/Utils.hs, dist/build/xmobar/xmobar-tmp/Plugins/Utils.o )
+[ 4 of 59] Compiling Signal           ( src/Signal.hs, dist/build/xmobar/xmobar-tmp/Signal.o )
+[ 5 of 59] Compiling Paths_xmobar     ( dist/build/autogen/Paths_xmobar.hs, dist/build/xmobar/xmobar-tmp/Paths_xmobar.o )
+[ 6 of 59] Compiling MinXft           ( dist/build/xmobar/xmobar-tmp/MinXft.hs, dist/build/xmobar/xmobar-tmp/MinXft.o )
+[ 7 of 59] Compiling Localize         ( dist/build/xmobar/xmobar-tmp/Localize.hs, dist/build/xmobar/xmobar-tmp/Localize.o )
+[ 8 of 59] Compiling IWlib            ( dist/build/xmobar/xmobar-tmp/IWlib.hs, dist/build/xmobar/xmobar-tmp/IWlib.o )
+[ 9 of 59] Compiling IPC.DBus         ( src/IPC/DBus.hs, dist/build/xmobar/xmobar-tmp/IPC/DBus.o )
+[10 of 59] Compiling Environment      ( src/Environment.hs, dist/build/xmobar/xmobar-tmp/Environment.o )
+[11 of 59] Compiling ColorCache       ( src/ColorCache.hs, dist/build/xmobar/xmobar-tmp/ColorCache.o )
+[12 of 59] Compiling XUtil            ( dist/build/xmobar/xmobar-tmp/XUtil.hs, dist/build/xmobar/xmobar-tmp/XUtil.o )
+[13 of 59] Compiling Commands         ( src/Commands.hs, dist/build/xmobar/xmobar-tmp/Commands.o )
+[14 of 59] Compiling Runnable[boot]   ( src/Runnable.hs-boot, dist/build/xmobar/xmobar-tmp/Runnable.o-boot )
+[15 of 59] Compiling Plugins          ( src/Plugins.hs, dist/build/xmobar/xmobar-tmp/Plugins.o )
+[16 of 59] Compiling Plugins.BufferedPipeReader ( src/Plugins/BufferedPipeReader.hs, dist/build/xmobar/xmobar-tmp/Plugins/BufferedPipeReader.o )
+[17 of 59] Compiling Plugins.CommandReader ( src/Plugins/CommandReader.hs, dist/build/xmobar/xmobar-tmp/Plugins/CommandReader.o )
+[18 of 59] Compiling Plugins.Date     ( src/Plugins/Date.hs, dist/build/xmobar/xmobar-tmp/Plugins/Date.o )
+[19 of 59] Compiling Plugins.DateZone ( src/Plugins/DateZone.hs, dist/build/xmobar/xmobar-tmp/Plugins/DateZone.o )
+[20 of 59] Compiling Plugins.MBox     ( src/Plugins/MBox.hs, dist/build/xmobar/xmobar-tmp/Plugins/MBox.o )
+[21 of 59] Compiling Plugins.Mail     ( src/Plugins/Mail.hs, dist/build/xmobar/xmobar-tmp/Plugins/Mail.o )
+[22 of 59] Compiling Plugins.MarqueePipeReader ( src/Plugins/MarqueePipeReader.hs, dist/build/xmobar/xmobar-tmp/Plugins/MarqueePipeReader.o )
+[23 of 59] Compiling Plugins.Monitors.Common ( src/Plugins/Monitors/Common.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Common.o )
+[24 of 59] Compiling Plugins.Monitors.Batt ( src/Plugins/Monitors/Batt.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Batt.o )
+[25 of 59] Compiling Plugins.Monitors.Bright ( src/Plugins/Monitors/Bright.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Bright.o )
+[26 of 59] Compiling Plugins.Monitors.CoreCommon ( src/Plugins/Monitors/CoreCommon.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/CoreCommon.o )
+[27 of 59] Compiling Plugins.Monitors.CatInt ( src/Plugins/Monitors/CatInt.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/CatInt.o )
+[28 of 59] Compiling Plugins.Monitors.CoreTemp ( src/Plugins/Monitors/CoreTemp.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/CoreTemp.o )
+[29 of 59] Compiling Plugins.Monitors.Cpu ( src/Plugins/Monitors/Cpu.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Cpu.o )
+[30 of 59] Compiling Plugins.Monitors.CpuFreq ( src/Plugins/Monitors/CpuFreq.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/CpuFreq.o )
+[31 of 59] Compiling Plugins.Monitors.Disk ( src/Plugins/Monitors/Disk.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Disk.o )
+[32 of 59] Compiling Plugins.Monitors.MPD ( src/Plugins/Monitors/MPD.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/MPD.o )
+[33 of 59] Compiling Plugins.Monitors.Mem ( src/Plugins/Monitors/Mem.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Mem.o )
+[34 of 59] Compiling Plugins.Monitors.Mpris ( src/Plugins/Monitors/Mpris.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Mpris.o )
+[35 of 59] Compiling Plugins.Monitors.MultiCpu ( src/Plugins/Monitors/MultiCpu.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/MultiCpu.o )
+[36 of 59] Compiling Plugins.Monitors.Net ( src/Plugins/Monitors/Net.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Net.o )
+[37 of 59] Compiling Plugins.Monitors.Swap ( src/Plugins/Monitors/Swap.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Swap.o )
+[38 of 59] Compiling Plugins.Monitors.Thermal ( src/Plugins/Monitors/Thermal.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Thermal.o )
+[39 of 59] Compiling Plugins.Monitors.ThermalZone ( src/Plugins/Monitors/ThermalZone.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/ThermalZone.o )
+[40 of 59] Compiling Plugins.Monitors.Top ( src/Plugins/Monitors/Top.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Top.o )
+[41 of 59] Compiling Plugins.Monitors.Uptime ( src/Plugins/Monitors/Uptime.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Uptime.o )
+[42 of 59] Compiling Plugins.Monitors.Volume ( src/Plugins/Monitors/Volume.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Volume.o )
+[43 of 59] Compiling Plugins.Monitors.Weather ( src/Plugins/Monitors/Weather.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Weather.o )
+[44 of 59] Compiling Plugins.Monitors.Wireless ( src/Plugins/Monitors/Wireless.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors/Wireless.o )
+[45 of 59] Compiling Plugins.Monitors ( src/Plugins/Monitors.hs, dist/build/xmobar/xmobar-tmp/Plugins/Monitors.o )
+[46 of 59] Compiling Plugins.PipeReader ( src/Plugins/PipeReader.hs, dist/build/xmobar/xmobar-tmp/Plugins/PipeReader.o )
+[47 of 59] Compiling Plugins.EWMH     ( src/Plugins/EWMH.hs, dist/build/xmobar/xmobar-tmp/Plugins/EWMH.o )
+[48 of 59] Compiling Plugins.Kbd      ( dist/build/xmobar/xmobar-tmp/Plugins/Kbd.hs, dist/build/xmobar/xmobar-tmp/Plugins/Kbd.o )
+
+src/Plugins/Kbd.hsc:54:10: warning: [-Wmissing-methods]
+    • No explicit implementation for
+        either ‘poke’ or ‘pokeElemOff’ or ‘pokeByteOff’
+    • In the instance declaration for ‘Storable XkbStateRec’
+
+src/Plugins/Kbd.hsc:155:10: warning: [-Wmissing-methods]
+    • No explicit implementation for
+        either ‘poke’ or ‘pokeElemOff’ or ‘pokeByteOff’
+    • In the instance declaration for ‘Storable XkbKeyNameRec’
+
+src/Plugins/Kbd.hsc:165:10: warning: [-Wmissing-methods]
+    • No explicit implementation for
+        either ‘poke’ or ‘pokeElemOff’ or ‘pokeByteOff’
+    • In the instance declaration for ‘Storable XkbKeyAliasRec’
+
+src/Plugins/Kbd.hsc:177:10: warning: [-Wmissing-methods]
+    • No explicit implementation for
+        either ‘poke’ or ‘pokeElemOff’ or ‘pokeByteOff’
+    • In the instance declaration for ‘Storable XkbNamesRec’
+
+src/Plugins/Kbd.hsc:215:10: warning: [-Wmissing-methods]
+    • No explicit implementation for
+        either ‘poke’ or ‘pokeElemOff’ or ‘pokeByteOff’
+    • In the instance declaration for ‘Storable XkbDescRec’
+[49 of 59] Compiling Plugins.Locks    ( src/Plugins/Locks.hs, dist/build/xmobar/xmobar-tmp/Plugins/Locks.o )
+[50 of 59] Compiling Actions          ( src/Actions.hs, dist/build/xmobar/xmobar-tmp/Actions.o )
+[51 of 59] Compiling Plugins.StdinReader ( src/Plugins/StdinReader.hs, dist/build/xmobar/xmobar-tmp/Plugins/StdinReader.o )
+[52 of 59] Compiling Plugins.XMonadLog ( src/Plugins/XMonadLog.hs, dist/build/xmobar/xmobar-tmp/Plugins/XMonadLog.o )
+[53 of 59] Compiling Config           ( src/Config.hs, dist/build/xmobar/xmobar-tmp/Config.o )
+[54 of 59] Compiling Runnable         ( src/Runnable.hs, dist/build/xmobar/xmobar-tmp/Runnable.o )
+[55 of 59] Compiling Parsers          ( src/Parsers.hs, dist/build/xmobar/xmobar-tmp/Parsers.o )
+[56 of 59] Compiling Bitmap           ( src/Bitmap.hs, dist/build/xmobar/xmobar-tmp/Bitmap.o )
+[57 of 59] Compiling Window           ( src/Window.hs, dist/build/xmobar/xmobar-tmp/Window.o )
+[58 of 59] Compiling Xmobar           ( src/Xmobar.hs, dist/build/xmobar/xmobar-tmp/Xmobar.o )
+[59 of 59] Compiling Main             ( src/Main.hs, dist/build/xmobar/xmobar-tmp/Main.o )
+Linking dist/build/xmobar/xmobar ...
+/usr/bin/ld: cannot find -lHSregex-compat-0.95.1-7IGKoiHTSKL3opdpEZ0pO8
+/usr/bin/ld: cannot find -lHSregex-posix-0.95.2-KQJt29lnRa45d6bFn9XkFO
+/usr/bin/ld: cannot find -lHSregex-base-0.93.2-AYjYAsBidAc8f5XNm9b2Aa
+/usr/bin/ld: cannot find -lHShashable-1.2.6.1-2nPqxcHq7mUGgurrYaLtXr
+/usr/bin/ld: cannot find -lHSasync-2.1.1.1-2GwQEYzLBsdIBCHbNA3HGy
+/usr/bin/ld: cannot find -lHSstm-2.4.4.1-iSYwp3RMY11sHCifJ3gtR
+/usr/bin/ld: cannot find -lHSrandom-1.1-9tceXaeYIMZ4JrKq20Egog
+/usr/bin/ld: cannot find -lHSextensible-exceptions-0.1.1.4-IyAM3ARTqH7BVZ5oHMMtXH
+/usr/bin/ld: cannot find -lHSX11-xft-0.3.1-KLlEMrfW9ytKuT5iGqCtmo
+/usr/bin/ld: cannot find -lHSutf8-string-1.0.1.1-1DpjxLeTvGg7ttZZojxJR5
+/usr/bin/ld: cannot find -lHSX11-1.8-189f0mYhex5EKHd6fv5Psu
+/usr/bin/ld: cannot find -lHSdata-default-0.7.1.1-BNa3MzH41nV77yjS9K2Umq
+/usr/bin/ld: cannot find -lHSdata-default-instances-old-locale-0.0.1-GWOeXPsy1OVFfzERubJA69
+/usr/bin/ld: cannot find -lHSold-locale-1.0.0.7-KGBP1BSKxH5GCm0LnZP04j
+/usr/bin/ld: cannot find -lHSdata-default-instances-dlist-0.0.1-7RrqjEy3zobBeHFG3mHw3f
+/usr/bin/ld: cannot find -lHSdlist-0.8.0.3-BHFBNaw8k6n9WiaUNzoXpk
+/usr/bin/ld: cannot find -lHSdata-default-instances-containers-0.0.1-7wbZULVPSeD7FpjcGQFrJl
+/usr/bin/ld: cannot find -lHSdata-default-class-0.1.2.0-N42RtcTZUUAlapzICmPz4
+/usr/bin/ld: cannot find -lHSHTTP-4000.3.7-C67mjM47SfREJVHCgq4Jk3
+/usr/bin/ld: cannot find -lHSnetwork-uri-2.6.1.0-GzRvaV3udR3JtWfa3CLYOw
+/usr/bin/ld: cannot find -lHSparsec-3.1.11-1CA7c0vSU7tJHGhveOjoXR
+/usr/bin/ld: cannot find -lHStext-1.2.2.2-3ENqlljngKa6xj1Go2fVWq
+/usr/bin/ld: cannot find -lHSnetwork-2.6.3.2-IsLM4TXcLoRI0fmmBYVyQz
+/usr/bin/ld: cannot find -lHSmtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+collect2: error: ld returned 1 exit status
+`gcc' failed in phase `Linker'. (Exit code: 1)
+cabal: Leaving directory '/tmp/cabal-tmp-1382/xmobar-0.24.5'

@@ -1,0 +1,283 @@
+
+package: xmobar-0.24.5
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: -with_xpm -with_xft -with_uvmeter with_utf8 -with_threaded
+       with_rtsopts -with_mpris -with_mpd -with_iwlib -with_inotify
+       -with_dbus -with_datezone -with_conduit -with_alsa -all_extensions
+dependencies: HTTP-4000.3.7 X11-1.8 base-4.9.1.0
+              bytestring-0.10.8.1 containers-0.5.7.1 directory-1.3.0.0
+              filepath-1.4.1.1 mtl-2.2.1 old-locale-1.0.0.7 parsec-3.1.11
+              process-1.4.3.0 regex-compat-0.95.1 stm-2.4.4.1 time-1.6.0.1
+              transformers-0.5.2.0 unix-2.7.2.1 utf8-string-1.0.1.1
+install-outcome: BuildFailed
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: regex-base-0.93.2
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: splitbase newbase
+dependencies: array-0.5.1.1 base-4.9.1.0 bytestring-0.10.8.1
+              containers-0.5.7.1 mtl-2.2.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: regex-compat-0.95.1
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: splitbase newbase
+dependencies: array-0.5.1.1 base-4.9.1.0 regex-base-0.93.2
+              regex-posix-0.95.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: regex-posix-0.95.2
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: splitbase newbase
+dependencies: array-0.5.1.1 base-4.9.1.0 bytestring-0.10.8.1
+              containers-0.5.7.1 regex-base-0.93.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: xmobar-0.24.5
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: -with_xpm -with_xft -with_uvmeter with_utf8 -with_threaded
+       with_rtsopts -with_mpris -with_mpd -with_iwlib -with_inotify
+       -with_dbus -with_datezone -with_conduit -with_alsa -all_extensions
+dependencies: HTTP-4000.3.7 X11-1.8 base-4.9.1.0
+              bytestring-0.10.8.1 containers-0.5.7.1 directory-1.3.0.0
+              filepath-1.4.1.1 mtl-2.2.1 old-locale-1.0.0.7 parsec-3.1.11
+              process-1.4.3.0 regex-compat-0.95.1 stm-2.4.4.1 time-1.6.0.1
+              transformers-0.5.2.0 unix-2.7.2.1 utf8-string-1.0.1.1
+install-outcome: BuildFailed
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: alsa-mixer-0.2.0.3
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+dependencies: alsa-core-0.5.0.1 base-4.9.1.0 unix-2.7.2.1
+install-outcome: ConfigureFailed
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: alsa-core-0.5.0.1
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: pkgconfig
+dependencies: base-4.9.1.0 extensible-exceptions-0.1.1.4
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: attoparsec-0.13.2.0
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: -developer
+dependencies: array-0.5.1.1 base-4.9.1.0 bytestring-0.10.8.1
+              containers-0.5.7.1 deepseq-1.4.2.0 scientific-0.3.5.1 text-1.2.2.2
+              transformers-0.5.2.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: cereal-0.5.4.0
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: -bytestring-builder
+dependencies: array-0.5.1.1 base-4.9.1.0 bytestring-0.10.8.1
+              containers-0.5.7.1 ghc-prim-0.5.0.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: dbus-0.10.13
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+dependencies: base-4.9.1.0 bytestring-0.10.8.1 cereal-0.5.4.0
+              containers-0.5.7.1 libxml-sax-0.7.5 network-2.6.3.2 parsec-3.1.11
+              random-1.1 text-1.2.2.2 transformers-0.5.2.0 unix-2.7.2.1
+              vector-0.12.0.1 xml-types-0.3.6
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: hinotify-0.3.9
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+dependencies: async-2.1.1.1 base-4.9.1.0 containers-0.5.7.1
+              directory-1.3.0.0 unix-2.7.2.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: integer-logarithms-1.0.2
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: integer-gmp -check-bounds
+dependencies: array-0.5.1.1 base-4.9.1.0 ghc-prim-0.5.0.0
+              integer-gmp-1.0.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: libmpd-0.9.0.7
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+dependencies: attoparsec-0.13.2.0 base-4.9.1.0 bytestring-0.10.8.1
+              containers-0.5.7.1 data-default-class-0.1.2.0 filepath-1.4.1.1
+              mtl-2.2.1 network-2.6.3.2 old-locale-1.0.0.7 text-1.2.2.2
+              time-1.6.0.1 utf8-string-1.0.1.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: libxml-sax-0.7.5
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+dependencies: base-4.9.1.0 bytestring-0.10.8.1 text-1.2.2.2
+              xml-types-0.3.6
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: primitive-0.6.2.0
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+dependencies: base-4.9.1.0 ghc-prim-0.5.0.0 transformers-0.5.2.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: scientific-0.3.5.1
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: -integer-simple -bytestring-builder
+dependencies: base-4.9.1.0 binary-0.8.3.0 bytestring-0.10.8.1
+              containers-0.5.7.1 deepseq-1.4.2.0 ghc-prim-0.5.0.0
+              hashable-1.2.6.1 integer-gmp-1.0.0.1 integer-logarithms-1.0.2
+              primitive-0.6.2.0 text-1.2.2.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: timezone-olson-0.1.8
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+dependencies: base-4.9.1.0 binary-0.8.3.0 bytestring-0.10.8.1
+              extensible-exceptions-0.1.1.4 time-1.6.0.1 timezone-series-0.1.8
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: timezone-series-0.1.8
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: -time_pre_1_6 time_1_6_and_1_7
+dependencies: base-4.9.1.0 deepseq-1.4.2.0 time-1.6.0.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: vector-0.12.0.1
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: -wall -unsafechecks -internalchecks boundschecks
+dependencies: base-4.9.1.0 deepseq-1.4.2.0 ghc-prim-0.5.0.0
+              primitive-0.6.2.0
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: xml-types-0.3.6
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+dependencies: base-4.9.1.0 deepseq-1.4.2.0 text-1.2.2.2
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: alsa-mixer-0.2.0.3
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+dependencies: alsa-core-0.5.0.1 base-4.9.1.0 unix-2.7.2.1
+install-outcome: ConfigureFailed
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: alsa-mixer-0.2.0.3
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+dependencies: alsa-core-0.5.0.1 base-4.9.1.0 unix-2.7.2.1
+install-outcome: InstallOk
+docs-outcome: NotTried
+tests-outcome: NotTried
+
+package: xmobar-0.24.5
+os: linux
+arch: x86_64
+compiler: ghc-8.0.2
+client: cabal-install-1.24.0.2
+flags: -with_xpm -with_xft -with_uvmeter with_utf8 -with_threaded
+       with_rtsopts -with_mpris -with_mpd -with_iwlib -with_inotify
+       -with_dbus -with_datezone -with_conduit -with_alsa all_extensions
+dependencies: HTTP-4000.3.7 X11-1.8 X11-xft-0.3.1 alsa-core-0.5.0.1
+              alsa-mixer-0.2.0.3 base-4.9.1.0 bytestring-0.10.8.1
+              containers-0.5.7.1 dbus-0.10.13 directory-1.3.0.0 filepath-1.4.1.1
+              hinotify-0.3.9 libmpd-0.9.0.7 mtl-2.2.1 old-locale-1.0.0.7
+              parsec-3.1.11 process-1.4.3.0 regex-compat-0.95.1 stm-2.4.4.1
+              time-1.6.0.1 timezone-olson-0.1.8 timezone-series-0.1.8
+              transformers-0.5.2.0 unix-2.7.2.1 utf8-string-1.0.1.1
+install-outcome: BuildFailed
+docs-outcome: NotTried
+tests-outcome: NotTried

@@ -1,0 +1,27 @@
+# Increase volume
+"pulseaudio-ctl up 10"
+   XF86AudioRaiseVolume
+
+# Decrease volume
+"pulseaudio-ctl down 10"
+   XF86AudioLowerVolume
+
+# Mute/unmute volume
+"pulseaudio-ctl mute"
+   XF86AudioMute
+
+# Increase screen brightness
+"/usr/bin/xbacklight -inc 5"
+   Mod4 + F6
+
+ #Decrease screen brightness
+"/usr/bin/xbacklight -dec 5"
+   Mod4 + F5
+
+# Rofi
+"/usr/bin/rofi -show run"
+   Mod4 + D
+
+# Lock screen
+"/usr/bin/i3lock -c 000000"
+   Mod1 + L 

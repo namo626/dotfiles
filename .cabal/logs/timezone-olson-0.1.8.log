@@ -1,0 +1,14 @@
+cabal: Entering directory '/tmp/cabal-tmp-30359/timezone-olson-0.1.8'
+Configuring timezone-olson-0.1.8...
+Building timezone-olson-0.1.8...
+Preprocessing library timezone-olson-0.1.8...
+[1 of 4] Compiling Data.Time.LocalTime.TimeZone.Olson.Types ( Data/Time/LocalTime/TimeZone/Olson/Types.hs, dist/build/Data/Time/LocalTime/TimeZone/Olson/Types.o )
+[2 of 4] Compiling Data.Time.LocalTime.TimeZone.Olson.Render ( Data/Time/LocalTime/TimeZone/Olson/Render.hs, dist/build/Data/Time/LocalTime/TimeZone/Olson/Render.o )
+[3 of 4] Compiling Data.Time.LocalTime.TimeZone.Olson.Parse ( Data/Time/LocalTime/TimeZone/Olson/Parse.hs, dist/build/Data/Time/LocalTime/TimeZone/Olson/Parse.o )
+[4 of 4] Compiling Data.Time.LocalTime.TimeZone.Olson ( Data/Time/LocalTime/TimeZone/Olson.hs, dist/build/Data/Time/LocalTime/TimeZone/Olson.o )
+Creating package registration file:
+/tmp/pkgConf-timezone-olson-0.11477171087356426808.8
+Installing library in
+/home/namo/.cabal/lib/x86_64-linux-ghc-8.0.2/timezone-olson-0.1.8-KxmQUzYkpvJ170qsmKAkEE
+Registering timezone-olson-0.1.8...
+cabal: Leaving directory '/tmp/cabal-tmp-30359/timezone-olson-0.1.8'

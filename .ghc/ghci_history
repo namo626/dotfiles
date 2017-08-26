@@ -1,0 +1,20 @@
+:q
+:l xmonad.hs
+:l xmonad.hs
+:l xmonad.hs
+:r
+:r
+:l xmonad.hs
+:q
+:r
+:l xmonad.hs
+:q
+:r
+:l xmonad.hs
+:l xmonad.hs
+:l xmonad.hs
+:q
+hwclock
+38-8.99
+38-8.8
+:l xmonad.hs
