@@ -1,0 +1,24 @@
+[global_config]
+  inactive_color_offset = 1.0
+  title_hide_sizetext = True
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#282828"
+    background_darkness = 0.76
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Droid Sans Mono for Powerline 14
+    foreground_color = "#ebdbb2"
+    icon_bell = False
+    scrollbar_position = hidden
+    use_system_font = False
