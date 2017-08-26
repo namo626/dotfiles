@@ -386,3 +386,62 @@ Release Date: 2017-03-15
 [  1005.130] (II) systemd-logind: got resume for 13:73
 [  1005.131] (II) event9  - (II) USB2.0 VGA UVC WebCam: (II) is tagged by udev as: Keyboard
 [  1005.131] (II) event9  - (II) USB2.0 VGA UVC WebCam: (II) device is a keyboard
+[  3340.988] (**) Option "fd" "30"
+[  3340.988] (II) event3  - (II) Power Button: (II) device removed
+[  3340.988] (**) Option "fd" "50"
+[  3340.988] (II) event4  - (II) Asus Wireless Radio Control: (II) device removed
+[  3340.988] (**) Option "fd" "24"
+[  3340.988] (II) event6  - (II) Video Bus: (II) device removed
+[  3340.988] (**) Option "fd" "49"
+[  3340.988] (II) event7  - (II) Video Bus: (II) device removed
+[  3340.988] (**) Option "fd" "27"
+[  3340.988] (II) event2  - (II) Sleep Button: (II) device removed
+[  3340.988] (**) Option "fd" "55"
+[  3340.988] (II) event9  - (II) USB2.0 VGA UVC WebCam: (II) device removed
+[  3340.988] (**) Option "fd" "26"
+[  3340.988] (II) event10 - (II) Elan Touchpad: (II) device removed
+[  3340.988] (**) Option "fd" "28"
+[  3340.988] (II) event8  - (II) Asus WMI hotkeys: (II) device removed
+[  3340.988] (**) Option "fd" "31"
+[  3340.988] (II) event0  - (II) AT Translated Set 2 keyboard: (II) device removed
+[  3340.988] (II) AIGLX: Suspending AIGLX clients for VT switch
+[  3341.074] (II) systemd-logind: got pause for 226:0
+[  3341.074] (II) systemd-logind: got pause for 13:67
+[  3341.074] (II) systemd-logind: got pause for 13:70
+[  3341.074] (II) systemd-logind: got pause for 13:74
+[  3341.074] (II) systemd-logind: got pause for 13:66
+[  3341.074] (II) systemd-logind: got pause for 13:72
+[  3341.074] (II) systemd-logind: got pause for 13:64
+[  3341.074] (II) systemd-logind: got pause for 13:71
+[  3341.074] (II) systemd-logind: got pause for 13:68
+[  3341.074] (II) systemd-logind: got pause for 13:73
+[  3342.946] (II) systemd-logind: got resume for 226:0
+[  3342.946] (II) AIGLX: Resuming AIGLX clients after VT switch
+[  3342.946] (II) intel(0): switch to mode 1920x1080@60.0 on eDP1 using pipe 0, position (0, 0), rotation normal, reflection none
+[  3343.043] (II) systemd-logind: got resume for 13:67
+[  3343.044] (II) event3  - (II) Power Button: (II) is tagged by udev as: Keyboard
+[  3343.044] (II) event3  - (II) Power Button: (II) device is a keyboard
+[  3343.044] (II) systemd-logind: got resume for 13:70
+[  3343.045] (II) event6  - (II) Video Bus: (II) is tagged by udev as: Keyboard
+[  3343.045] (II) event6  - (II) Video Bus: (II) device is a keyboard
+[  3343.045] (II) systemd-logind: got resume for 13:74
+[  3343.045] (II) event10 - (II) Elan Touchpad: (II) is tagged by udev as: Touchpad
+[  3343.045] (II) event10 - (II) Elan Touchpad: (II) device is a touchpad
+[  3343.045] (II) systemd-logind: got resume for 13:66
+[  3343.046] (II) event2  - (II) Sleep Button: (II) is tagged by udev as: Keyboard
+[  3343.046] (II) event2  - (II) Sleep Button: (II) device is a keyboard
+[  3343.046] (II) systemd-logind: got resume for 13:72
+[  3343.047] (II) event8  - (II) Asus WMI hotkeys: (II) is tagged by udev as: Keyboard
+[  3343.047] (II) event8  - (II) Asus WMI hotkeys: (II) device is a keyboard
+[  3343.051] (II) systemd-logind: got resume for 13:64
+[  3343.051] (II) event0  - (II) AT Translated Set 2 keyboard: (II) is tagged by udev as: Keyboard
+[  3343.051] (II) event0  - (II) AT Translated Set 2 keyboard: (II) device is a keyboard
+[  3343.063] (II) systemd-logind: got resume for 13:71
+[  3343.064] (II) event7  - (II) Video Bus: (II) is tagged by udev as: Keyboard
+[  3343.064] (II) event7  - (II) Video Bus: (II) device is a keyboard
+[  3343.077] (II) systemd-logind: got resume for 13:68
+[  3343.078] (II) event4  - (II) Asus Wireless Radio Control: (II) is tagged by udev as: Keyboard
+[  3343.078] (II) event4  - (II) Asus Wireless Radio Control: (II) device is a keyboard
+[  3343.090] (II) systemd-logind: got resume for 13:73
+[  3343.091] (II) event9  - (II) USB2.0 VGA UVC WebCam: (II) is tagged by udev as: Keyboard
+[  3343.091] (II) event9  - (II) USB2.0 VGA UVC WebCam: (II) device is a keyboard
