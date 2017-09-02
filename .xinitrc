@@ -49,9 +49,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 xss-lock -- i3lock -n -c 000000 &
+dropbox &
+megasync &
 xbindkeys
 compton -b
-feh --bg-scale ~/Pictures/2mountains.jpg &
+feh --bg-scale ~/Pictures/himalayans.jpg &
 stalonetray &
 wmname LG3D
 exec xmonad

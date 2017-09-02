@@ -13,12 +13,15 @@
 [plugins]
 [profiles]
   [[default]]
+    allow_bold = False
     background_color = "#282828"
-    background_darkness = 0.76
+    background_darkness = 0.62
     background_type = transparent
     cursor_color = "#aaaaaa"
-    font = Droid Sans Mono for Powerline 14
+    font = Droid Sans Mono Slashed for Powerline 14
     foreground_color = "#ebdbb2"
     icon_bell = False
+    scrollback_infinite = True
     scrollbar_position = hidden
+    show_titlebar = False
     use_system_font = False

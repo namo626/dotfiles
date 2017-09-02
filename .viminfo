@@ -10,27 +10,42 @@
 
 # hlsearch on (H) or off (h):
 ~h
+# Last Search Pattern:
+~MSle0~/myLay
+
 # Command Line History (newest to oldest):
-:w
-|2,0,1503681340,,"w"
+:q
+|2,0,1504387717,,"q"
 :wq
-|2,0,1503683179,,"wq"
+|2,0,1504387254,,"wq"
+:w
+|2,0,1504319480,,"w"
+:!
+|2,0,1504205117,,"!"
+:tabe ~/.vimrc
+|2,0,1504032279,,"tabe ~/.vimrc"
+:PluginInstall
+|2,0,1503802750,,"PluginInstall"
+:set paste
+|2,0,1503802596,,"set paste"
 :q!
 |2,0,1503667371,,"q!"
-:q
-|2,0,1503667368,,"q"
 :tabe vollogo.sh
 |2,0,1503620035,,"tabe vollogo.sh"
 :tabe ~/.xmobarrc
 |2,0,1503596229,,"tabe ~/.xmobarrc"
-:set paste
-|2,0,1503591166,,"set paste"
 :tabe .xmonad/xmonad.hs
 |2,0,1503588803,,"tabe .xmonad/xmonad.hs"
 :e .xmobarrc
 |2,0,1503523211,,"e .xmobarrc"
 
 # Search String History (newest to oldest):
+?/myLay
+|2,1,1504281685,47,"myLay"
+?/Border
+|2,1,1503878502,47,"Border"
+?/active
+|2,1,1503848228,47,"active"
 
 # Expression History (newest to oldest):
 
@@ -39,304 +54,416 @@
 # Debug Line History (newest to oldest):
 
 # Registers:
-"0	LINE	0
-	position = TopW L 94,
-|3,0,0,1,1,0,1503668697,"position = TopW L 94,"
+"0	CHAR	0
+	Project { projectName = "Misc"
+	              , projectDirectory = "~/Downloads"
+	              , projectStartHook = Just $ do spawn "terminator"
+	                                             spawn "evince"
+	
+	
+|3,0,0,0,6,0,1504198339,"Project { projectName = \"Misc\"","              , projectDirectory = \"~/Downloads\"","              , projectStartHook = Just $ do spawn \"terminator\"","                                             spawn \"evince\"","",""
 "1	LINE	0
-	position = TopSize L 100 16,
-|3,0,1,1,1,0,1503668732,"position = TopSize L 100 16,"
-"2	CHAR	0
-	case $vol in
-		"true") bar=;;
-		*) bar= ;;
-	esac
-	
-	
-|3,0,2,0,6,0,1503620016,"case $vol in","	\"true\") bar=;;","	*) bar= ;;","esac","",""
+	                                             spawn "terminator" }
+|3,0,1,1,1,0,1504205553,"                                             spawn \"terminator\" }"
+"2	LINE	0
+	                                             runInTerm "" "ranger" }
+|3,0,2,1,1,0,1504199008,"                                             runInTerm \"\" \"ranger\" }"
 "3	LINE	0
-	    , logHook = dynamicLogWithPP $ xmobarPP {ppLayout = (\_ -> "a"), ppOutput = hPutStrLn h} 
-|3,0,3,1,1,0,1503591951,"    , logHook = dynamicLogWithPP $ xmobarPP {ppLayout = (\\_ -> \"a\"), ppOutput = hPutStrLn h} "
+	                                             spawn "terminator" }
+|3,0,3,1,1,0,1504198745,"                                             spawn \"terminator\" }"
 "4	LINE	0
-	    h <- spawnPipe "xmobar"
-|3,0,4,1,1,0,1503591730,"    h <- spawnPipe \"xmobar\""
+	
+|3,0,4,1,1,0,1504198479,""
 "5	LINE	0
-	    , handleEventHook = mconcat [docksEventHook, handleEventHook def]
-|3,0,5,1,1,0,1503590675,"    , handleEventHook = mconcat [docksEventHook, handleEventHook def]"
+	              }
+|3,0,5,1,1,0,1504198477,"              }"
 "6	LINE	0
-	      terminal = "terminator"
-|3,0,6,1,1,0,1503590424,"      terminal = \"terminator\""
-"7	CHAR	0
-	myLog h = xmobarPP {
-	ppCurrent = ppCurrent xmobarPP,
-	ppVisible = ppVisible xmobarPP,
-	ppLayout = \_ -> "",
-	ppHidden = ppHidden xmobarPP,
-	ppHiddenNoWindows = ppHiddenNoWindows xmobarPP,
-	ppUrgent = ppUrgent xmobarPP,
-	ppSep = ppSep xmobarPP,
-	ppWsSep = ppWsSep xmobarPP,
-	ppTitle = ppTitle xmobarPP,
-	ppTitleSanitize = ppTitleSanitize xmobarPP,
-	ppOrder = ppOrder xmobarPP,
-	ppSort = ppSort xmobarPP,
-	ppExtras = ppExtras xmobarPP,
-	ppOutput = hPutStrLn h
-	}
-|3,0,7,0,16,0,1503590380,"myLog h = xmobarPP {","ppCurrent = ppCurrent xmobarPP,","ppVisible = ppVisible xmobarPP,","ppLayout = \\_ -> \"\",","ppHidden = ppHidden xmobarPP,","ppHiddenNoWindows = ppHiddenNoWindows xmobarPP,","ppUrgent = ppUrgent xmobarPP,","ppSep = ppSep xmobarPP,","ppWsSep = ppWsSep xmobarPP,","ppTitle = ppTitle xmobarPP,","ppTitleSanitize = ppTitleSanitize xmobarPP,","ppOrder = ppOrder xmobarPP,","ppSort = ppSort xmobarPP,",>31
-|<"ppExtras = ppExtras xmobarPP,","ppOutput = hPutStrLn h","}"
-"8	LINE	0
-	    , logHook = dynamicLogWithPP $ xmobarPP {ppLayout = (\_ -> "a"), ppOutput = hPutStrLn h} 
-|3,0,8,1,1,0,1503590203,"    , logHook = dynamicLogWithPP $ xmobarPP {ppLayout = (\\_ -> \"a\"), ppOutput = hPutStrLn h} "
-"9	LINE	0
-	    , layoutHook = spacingWithEdge 7 $ layoutHook def
-|3,0,9,1,1,0,1503590199,"    , layoutHook = spacingWithEdge 7 $ layoutHook def"
+	                                      spawn "evince"
+|3,0,6,1,1,0,1504198475,"                                      spawn \"evince\""
+"7	LINE	0
+	
+|3,0,7,1,1,0,1504198269,""
+"8	CHAR	0
+	$ dynamicProjects projects def  
+	
+|3,0,8,0,2,0,1504198162,"$ dynamicProjects projects def  ",""
+"9	CHAR	0
+	def {
+	      manageHook = myManageHook <+> manageDocks <+> manageHook def
+	    , layoutHook = myLayout
+	    , handleEventHook = handleEventHook def <+> docksEventHook
+	    , modMask = mod4Mask
+	    , borderWidth = 0
+	    , terminal = "terminator"
+	    , keys = myKeys <+> keys def
+	    , XMonad.workspaces = myWorkspaces
+	    }) $ dynamicProjects projects def  
+	
+|3,0,9,0,11,0,1504198121,"def {","      manageHook = myManageHook <+> manageDocks <+> manageHook def","    , layoutHook = myLayout","    , handleEventHook = handleEventHook def <+> docksEventHook","    , modMask = mod4Mask","    , borderWidth = 0","    , terminal = \"terminator\"","    , keys = myKeys <+> keys def","    , XMonad.workspaces = myWorkspaces","    }) $ dynamicProjects projects def  ",""
 ""-	CHAR	0
-	 
-|3,1,36,0,1,0,1503681333," "
+	2mountains
+|3,1,36,0,1,0,1504386598,"2mountains"
+
+# global variables:
 
 # File marks:
-'0  19  114  ~/.xmobarrc
-|4,48,19,114,1503683183,"~/.xmobarrc"
-'1  54  12  ~/.xinitrc
-|4,49,54,12,1503683180,"~/.xinitrc"
-'2  37  9  ~/.stalonetrayrc
-|4,50,37,9,1503667371,"~/.stalonetrayrc"
-'3  5  21  ~/.xmonad/xmonad.hs
-|4,51,5,21,1503666118,"~/.xmonad/xmonad.hs"
-'4  4  47  ~/.xmobarrc
-|4,52,4,47,1503620716,"~/.xmobarrc"
-'5  4  47  ~/.xmobarrc
-|4,53,4,47,1503620716,"~/.xmobarrc"
-'6  2  8  ~/scripts/vollogo.sh
-|4,54,2,8,1503620334,"~/scripts/vollogo.sh"
-'7  5  5  ~/scripts/vol.sh
-|4,55,5,5,1503619709,"~/scripts/vol.sh"
-'8  10  5  ~/scripts/vol.sh
-|4,56,10,5,1503619709,"~/scripts/vol.sh"
-'9  5  14  ~/scripts/vol.sh
-|4,57,5,14,1503619349,"~/scripts/vol.sh"
+'0  1  0  ~/.gitignore
+|4,48,1,0,1504387717,"~/.gitignore"
+'1  1  0  ~/.gitignore
+|4,49,1,0,1504387346,"~/.gitignore"
+'2  39  102  ~/.xmonad/xmonad.hs
+|4,50,39,102,1504387254,"~/.xmonad/xmonad.hs"
+'3  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
+|4,51,1,0,1504386853,"~/Dropbox/VM_shared/Codeforces/effi.hs"
+'4  56  9  ~/.xinitrc
+|4,52,56,9,1504386621,"~/.xinitrc"
+'5  70  35  ~/.xmonad/xmonad.hs
+|4,53,70,35,1504280653,"~/.xmonad/xmonad.hs"
+'6  69  35  ~/.xmonad/xmonad.hs
+|4,54,69,35,1504280653,"~/.xmonad/xmonad.hs"
+'7  10  0  ~/.xmobarrc
+|4,55,10,0,1504121885,"~/.xmobarrc"
+'8  13  0  ~/.xmonad/xmonad.hs
+|4,56,13,0,1504034484,"~/.xmonad/xmonad.hs"
+'9  12  0  ~/.xmonad/xmonad.hs
+|4,57,12,0,1504034484,"~/.xmonad/xmonad.hs"
 
 # Jumplist (newest first):
--'  19  114  ~/.xmobarrc
-|4,39,19,114,1503683183,"~/.xmobarrc"
--'  54  12  ~/.xinitrc
-|4,39,54,12,1503683180,"~/.xinitrc"
--'  37  9  ~/.stalonetrayrc
-|4,39,37,9,1503667371,"~/.stalonetrayrc"
--'  37  9  ~/.stalonetrayrc
-|4,39,37,9,1503667371,"~/.stalonetrayrc"
--'  4  47  ~/.xmobarrc
-|4,39,4,47,1503667328,"~/.xmobarrc"
--'  1  0  ~/.stalonetrayrc
-|4,39,1,0,1503667021,"~/.stalonetrayrc"
--'  1  0  ~/.stalonetrayrc
-|4,39,1,0,1503667021,"~/.stalonetrayrc"
--'  5  21  ~/.xmonad/xmonad.hs
-|4,39,5,21,1503666118,"~/.xmonad/xmonad.hs"
--'  5  21  ~/.xmonad/xmonad.hs
-|4,39,5,21,1503666118,"~/.xmonad/xmonad.hs"
--'  5  21  ~/.xmonad/xmonad.hs
-|4,39,5,21,1503666118,"~/.xmonad/xmonad.hs"
--'  5  21  ~/.xmonad/xmonad.hs
-|4,39,5,21,1503666118,"~/.xmonad/xmonad.hs"
--'  5  21  ~/.xmonad/xmonad.hs
-|4,39,5,21,1503666118,"~/.xmonad/xmonad.hs"
--'  11  47  ~/.xmonad/xmonad.hs
-|4,39,11,47,1503620721,"~/.xmonad/xmonad.hs"
--'  11  47  ~/.xmonad/xmonad.hs
-|4,39,11,47,1503620721,"~/.xmonad/xmonad.hs"
--'  11  47  ~/.xmonad/xmonad.hs
-|4,39,11,47,1503620721,"~/.xmonad/xmonad.hs"
--'  11  47  ~/.xmonad/xmonad.hs
-|4,39,11,47,1503620721,"~/.xmonad/xmonad.hs"
--'  11  47  ~/.xmonad/xmonad.hs
-|4,39,11,47,1503620721,"~/.xmonad/xmonad.hs"
--'  4  47  ~/.xmobarrc
-|4,39,4,47,1503620716,"~/.xmobarrc"
--'  4  47  ~/.xmobarrc
-|4,39,4,47,1503620716,"~/.xmobarrc"
--'  4  47  ~/.xmobarrc
-|4,39,4,47,1503620716,"~/.xmobarrc"
--'  4  47  ~/.xmobarrc
-|4,39,4,47,1503620716,"~/.xmobarrc"
--'  4  47  ~/.xmobarrc
-|4,39,4,47,1503620716,"~/.xmobarrc"
--'  4  47  ~/.xmobarrc
-|4,39,4,47,1503620716,"~/.xmobarrc"
--'  4  47  ~/.xmobarrc
-|4,39,4,47,1503620716,"~/.xmobarrc"
--'  4  47  ~/.xmobarrc
-|4,39,4,47,1503620716,"~/.xmobarrc"
--'  2  8  ~/scripts/vollogo.sh
-|4,39,2,8,1503620334,"~/scripts/vollogo.sh"
--'  2  8  ~/scripts/vollogo.sh
-|4,39,2,8,1503620334,"~/scripts/vollogo.sh"
--'  2  8  ~/scripts/vollogo.sh
-|4,39,2,8,1503620334,"~/scripts/vollogo.sh"
--'  2  8  ~/scripts/vollogo.sh
-|4,39,2,8,1503620334,"~/scripts/vollogo.sh"
--'  2  8  ~/scripts/vollogo.sh
-|4,39,2,8,1503620334,"~/scripts/vollogo.sh"
--'  2  8  ~/scripts/vollogo.sh
-|4,39,2,8,1503620334,"~/scripts/vollogo.sh"
--'  2  8  ~/scripts/vollogo.sh
-|4,39,2,8,1503620334,"~/scripts/vollogo.sh"
--'  2  8  ~/scripts/vollogo.sh
-|4,39,2,8,1503620334,"~/scripts/vollogo.sh"
--'  2  8  ~/scripts/vollogo.sh
-|4,39,2,8,1503620334,"~/scripts/vollogo.sh"
--'  2  8  ~/scripts/vollogo.sh
-|4,39,2,8,1503620334,"~/scripts/vollogo.sh"
--'  5  0  ~/scripts/vol.sh
-|4,39,5,0,1503620035,"~/scripts/vol.sh"
--'  5  0  ~/scripts/vol.sh
-|4,39,5,0,1503620035,"~/scripts/vol.sh"
--'  5  0  ~/scripts/vol.sh
-|4,39,5,0,1503620035,"~/scripts/vol.sh"
--'  5  0  ~/scripts/vol.sh
-|4,39,5,0,1503620035,"~/scripts/vol.sh"
--'  5  0  ~/scripts/vol.sh
-|4,39,5,0,1503620035,"~/scripts/vol.sh"
--'  5  0  ~/scripts/vol.sh
-|4,39,5,0,1503620035,"~/scripts/vol.sh"
--'  5  0  ~/scripts/vol.sh
-|4,39,5,0,1503620035,"~/scripts/vol.sh"
--'  5  0  ~/scripts/vol.sh
-|4,39,5,0,1503620035,"~/scripts/vol.sh"
--'  5  0  ~/scripts/vol.sh
-|4,39,5,0,1503620035,"~/scripts/vol.sh"
--'  5  0  ~/scripts/vol.sh
-|4,39,5,0,1503620035,"~/scripts/vol.sh"
--'  10  5  ~/scripts/vol.sh
-|4,39,10,5,1503619709,"~/scripts/vol.sh"
--'  10  5  ~/scripts/vol.sh
-|4,39,10,5,1503619709,"~/scripts/vol.sh"
--'  10  5  ~/scripts/vol.sh
-|4,39,10,5,1503619709,"~/scripts/vol.sh"
--'  10  5  ~/scripts/vol.sh
-|4,39,10,5,1503619709,"~/scripts/vol.sh"
--'  10  5  ~/scripts/vol.sh
-|4,39,10,5,1503619709,"~/scripts/vol.sh"
--'  10  5  ~/scripts/vol.sh
-|4,39,10,5,1503619709,"~/scripts/vol.sh"
--'  10  5  ~/scripts/vol.sh
-|4,39,10,5,1503619709,"~/scripts/vol.sh"
--'  10  5  ~/scripts/vol.sh
-|4,39,10,5,1503619709,"~/scripts/vol.sh"
--'  10  5  ~/scripts/vol.sh
-|4,39,10,5,1503619709,"~/scripts/vol.sh"
--'  10  5  ~/scripts/vol.sh
-|4,39,10,5,1503619709,"~/scripts/vol.sh"
--'  10  14  ~/scripts/vol.sh
-|4,39,10,14,1503619349,"~/scripts/vol.sh"
--'  10  14  ~/scripts/vol.sh
-|4,39,10,14,1503619349,"~/scripts/vol.sh"
--'  10  14  ~/scripts/vol.sh
-|4,39,10,14,1503619349,"~/scripts/vol.sh"
--'  10  14  ~/scripts/vol.sh
-|4,39,10,14,1503619349,"~/scripts/vol.sh"
--'  10  14  ~/scripts/vol.sh
-|4,39,10,14,1503619349,"~/scripts/vol.sh"
--'  10  14  ~/scripts/vol.sh
-|4,39,10,14,1503619349,"~/scripts/vol.sh"
--'  10  14  ~/scripts/vol.sh
-|4,39,10,14,1503619349,"~/scripts/vol.sh"
--'  10  14  ~/scripts/vol.sh
-|4,39,10,14,1503619349,"~/scripts/vol.sh"
--'  10  14  ~/scripts/vol.sh
-|4,39,10,14,1503619349,"~/scripts/vol.sh"
--'  10  14  ~/scripts/vol.sh
-|4,39,10,14,1503619349,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  9  8  ~/scripts/vol.sh
-|4,39,9,8,1503619224,"~/scripts/vol.sh"
--'  4  8  ~/scripts/vol.sh
-|4,39,4,8,1503618966,"~/scripts/vol.sh"
--'  5  8  ~/scripts/vol.sh
-|4,39,5,8,1503618966,"~/scripts/vol.sh"
--'  4  8  ~/scripts/vol.sh
-|4,39,4,8,1503618966,"~/scripts/vol.sh"
--'  5  8  ~/scripts/vol.sh
-|4,39,5,8,1503618966,"~/scripts/vol.sh"
--'  4  8  ~/scripts/vol.sh
-|4,39,4,8,1503618966,"~/scripts/vol.sh"
--'  4  8  ~/scripts/vol.sh
-|4,39,4,8,1503618966,"~/scripts/vol.sh"
--'  5  8  ~/scripts/vol.sh
-|4,39,5,8,1503618966,"~/scripts/vol.sh"
--'  4  8  ~/scripts/vol.sh
-|4,39,4,8,1503618966,"~/scripts/vol.sh"
--'  5  8  ~/scripts/vol.sh
-|4,39,5,8,1503618966,"~/scripts/vol.sh"
--'  4  8  ~/scripts/vol.sh
-|4,39,4,8,1503618966,"~/scripts/vol.sh"
--'  4  8  ~/scripts/vol.sh
-|4,39,4,8,1503618966,"~/scripts/vol.sh"
--'  5  8  ~/scripts/vol.sh
-|4,39,5,8,1503618966,"~/scripts/vol.sh"
--'  4  8  ~/scripts/vol.sh
-|4,39,4,8,1503618966,"~/scripts/vol.sh"
--'  5  8  ~/scripts/vol.sh
-|4,39,5,8,1503618966,"~/scripts/vol.sh"
--'  4  8  ~/scripts/vol.sh
-|4,39,4,8,1503618966,"~/scripts/vol.sh"
+-'  1  0  ~/.gitignore
+|4,39,1,0,1504387717,"~/.gitignore"
+-'  1  0  ~/.gitignore
+|4,39,1,0,1504387346,"~/.gitignore"
+-'  39  102  ~/.xmonad/xmonad.hs
+|4,39,39,102,1504387254,"~/.xmonad/xmonad.hs"
+-'  39  102  ~/.xmonad/xmonad.hs
+|4,39,39,102,1504387254,"~/.xmonad/xmonad.hs"
+-'  39  102  ~/.xmonad/xmonad.hs
+|4,39,39,102,1504387254,"~/.xmonad/xmonad.hs"
+-'  39  102  ~/.xmonad/xmonad.hs
+|4,39,39,102,1504387254,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
+|4,39,1,0,1504386853,"~/Dropbox/VM_shared/Codeforces/effi.hs"
+-'  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
+|4,39,1,0,1504386853,"~/Dropbox/VM_shared/Codeforces/effi.hs"
+-'  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
+|4,39,1,0,1504386853,"~/Dropbox/VM_shared/Codeforces/effi.hs"
+-'  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
+|4,39,1,0,1504386853,"~/Dropbox/VM_shared/Codeforces/effi.hs"
+-'  56  9  ~/.xinitrc
+|4,39,56,9,1504386621,"~/.xinitrc"
+-'  56  9  ~/.xinitrc
+|4,39,56,9,1504386621,"~/.xinitrc"
+-'  56  9  ~/.xinitrc
+|4,39,56,9,1504386621,"~/.xinitrc"
+-'  56  9  ~/.xinitrc
+|4,39,56,9,1504386621,"~/.xinitrc"
+-'  56  9  ~/.xinitrc
+|4,39,56,9,1504386621,"~/.xinitrc"
+-'  56  9  ~/.xinitrc
+|4,39,56,9,1504386621,"~/.xinitrc"
+-'  56  9  ~/.xinitrc
+|4,39,56,9,1504386621,"~/.xinitrc"
+-'  56  9  ~/.xinitrc
+|4,39,56,9,1504386621,"~/.xinitrc"
+-'  1  0  ~/.xinitrc
+|4,39,1,0,1504386586,"~/.xinitrc"
+-'  1  0  ~/.xinitrc
+|4,39,1,0,1504386586,"~/.xinitrc"
+-'  1  0  ~/.xinitrc
+|4,39,1,0,1504386586,"~/.xinitrc"
+-'  1  0  ~/.xinitrc
+|4,39,1,0,1504386586,"~/.xinitrc"
+-'  1  0  ~/.xinitrc
+|4,39,1,0,1504386586,"~/.xinitrc"
+-'  1  0  ~/.xinitrc
+|4,39,1,0,1504386586,"~/.xinitrc"
+-'  1  0  ~/.xinitrc
+|4,39,1,0,1504386586,"~/.xinitrc"
+-'  1  0  ~/.xinitrc
+|4,39,1,0,1504386586,"~/.xinitrc"
+-'  28  19  ~/.xmonad/xmonad.hs
+|4,39,28,19,1504281686,"~/.xmonad/xmonad.hs"
+-'  28  19  ~/.xmonad/xmonad.hs
+|4,39,28,19,1504281686,"~/.xmonad/xmonad.hs"
+-'  28  19  ~/.xmonad/xmonad.hs
+|4,39,28,19,1504281686,"~/.xmonad/xmonad.hs"
+-'  28  19  ~/.xmonad/xmonad.hs
+|4,39,28,19,1504281686,"~/.xmonad/xmonad.hs"
+-'  55  0  ~/.xmonad/xmonad.hs
+|4,39,55,0,1504281685,"~/.xmonad/xmonad.hs"
+-'  55  0  ~/.xmonad/xmonad.hs
+|4,39,55,0,1504281685,"~/.xmonad/xmonad.hs"
+-'  55  0  ~/.xmonad/xmonad.hs
+|4,39,55,0,1504281685,"~/.xmonad/xmonad.hs"
+-'  55  0  ~/.xmonad/xmonad.hs
+|4,39,55,0,1504281685,"~/.xmonad/xmonad.hs"
+-'  3  26  ~/.xmonad/xmonad.hs
+|4,39,3,26,1504281672,"~/.xmonad/xmonad.hs"
+-'  3  26  ~/.xmonad/xmonad.hs
+|4,39,3,26,1504281672,"~/.xmonad/xmonad.hs"
+-'  3  26  ~/.xmonad/xmonad.hs
+|4,39,3,26,1504281672,"~/.xmonad/xmonad.hs"
+-'  3  26  ~/.xmonad/xmonad.hs
+|4,39,3,26,1504281672,"~/.xmonad/xmonad.hs"
+-'  85  53  ~/.xmonad/xmonad.hs
+|4,39,85,53,1504281654,"~/.xmonad/xmonad.hs"
+-'  85  53  ~/.xmonad/xmonad.hs
+|4,39,85,53,1504281654,"~/.xmonad/xmonad.hs"
+-'  85  53  ~/.xmonad/xmonad.hs
+|4,39,85,53,1504281654,"~/.xmonad/xmonad.hs"
+-'  85  53  ~/.xmonad/xmonad.hs
+|4,39,85,53,1504281654,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504281467,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504281467,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504281467,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504281467,"~/.xmonad/xmonad.hs"
+-'  70  35  ~/.xmonad/xmonad.hs
+|4,39,70,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  70  35  ~/.xmonad/xmonad.hs
+|4,39,70,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  70  35  ~/.xmonad/xmonad.hs
+|4,39,70,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  70  35  ~/.xmonad/xmonad.hs
+|4,39,70,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  69  35  ~/.xmonad/xmonad.hs
+|4,39,69,35,1504280653,"~/.xmonad/xmonad.hs"
+-'  91  8  ~/.xmonad/xmonad.hs
+|4,39,91,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  91  8  ~/.xmonad/xmonad.hs
+|4,39,91,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  91  8  ~/.xmonad/xmonad.hs
+|4,39,91,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  91  8  ~/.xmonad/xmonad.hs
+|4,39,91,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  88  8  ~/.xmonad/xmonad.hs
+|4,39,88,8,1504272909,"~/.xmonad/xmonad.hs"
+-'  56  75  ~/.xmonad/xmonad.hs
+|4,39,56,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  56  75  ~/.xmonad/xmonad.hs
+|4,39,56,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  56  75  ~/.xmonad/xmonad.hs
+|4,39,56,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
+-'  55  75  ~/.xmonad/xmonad.hs
+|4,39,55,75,1504198663,"~/.xmonad/xmonad.hs"
 
 # History of marks within files (newest to oldest):
 
+> ~/.gitignore
+	*	1504387706	0
+	"	1	0
+
 > ~/.xinitrc
-	*	1503683178	0
-	"	54	12
-	^	55	13
-	.	55	12
-	+	57	10
-	+	56	10
-	+	53	9
+	*	1504386619	0
+	"	56	9
+	^	53	10
+	.	53	9
+	+	59	10
+	+	58	10
+	+	55	9
 	+	51	31
-	+	54	27
-	+	55	12
+	+	56	27
+	+	57	12
+	+	52	8
+	+	54	0
+	+	56	35
+	+	53	9
+
+> ~/.xmonad/xmonad.hs
+	*	1504319480	0
+	"	39	102
+	^	39	103
+	.	39	102
+	+	39	1
+	+	65	1
+	+	39	58
+	+	65	0
+	+	39	88
+	+	69	58
+	+	39	107
+	+	69	25
+	+	65	0
+	+	39	1
+	+	65	0
+	+	23	82
+	+	39	0
+	+	69	33
+	+	39	1
+	+	23	82
+	+	39	0
+	+	69	27
+	+	23	82
+	+	69	0
+	+	67	6
+	+	67	0
+	+	67	4
+	+	68	1
+	+	69	0
+	+	23	82
+	+	16	32
+	+	62	110
+	+	23	105
+	+	18	36
+	+	23	56
+	+	23	91
+	+	62	111
+	+	18	22
+	+	62	18
+	+	17	23
+	+	64	52
+	+	42	25
+	+	23	81
+	+	42	38
+	+	59	0
+	+	58	41
+	+	57	4
+	+	19	36
+	+	23	63
+	+	23	13
+	+	23	65
+	+	23	56
+	+	37	0
+	+	26	11
+	+	36	0
+	+	35	5
+	+	23	91
+	+	25	0
+	+	51	5
+	+	50	0
+	+	49	59
+	+	51	39
+	+	52	38
+	+	56	61
+	+	56	64
+	+	56	0
+	+	57	0
+	+	56	0
+	+	53	46
+	+	56	75
+	+	56	0
+	+	56	77
+	+	53	56
+	+	56	0
+	+	53	75
+	+	56	64
+	+	53	80
+	+	52	44
+	+	53	63
+	+	54	62
+	+	55	57
+	+	56	0
+	+	55	77
+	+	88	11
+	+	87	51
+	+	88	56
+	+	93	14
+	+	94	38
+	+	97	2
+	+	87	57
+	+	88	61
+	+	2	19
+	+	96	14
+	+	94	52
+	+	96	13
+	+	63	24
+	+	94	52
+	+	3	34
+	+	39	161
+	+	90	53
+	+	3	26
+	+	39	162
+	+	39	0
+	+	39	102
+	o	79	16
 
 > ~/.xmobarrc
-	*	1503681341	0
-	"	19	114
+	*	1504121817	0
+	"	10	0
 	^	19	115
-	.	19	114
+	.	2	0
 	+	1	7
 	+	1	72
 	+	1	0
@@ -432,95 +559,53 @@
 	+	8	0
 	+	7	20
 	+	19	114
+	+	2	0
+
+> ~/.vimrc
+	*	1504032295	0
+	"	55	18
+	^	55	19
+	.	55	18
+	+	19	24
+	+	16	36
+	+	10	0
+	+	57	14
+	+	52	0
+	+	27	0
+	+	13	18
+	+	3	15
+	+	57	14
+	+	55	18
+
+> ~/scripts/matlab.sh
+	*	1504031497	0
+	"	5	20
+	^	5	21
+	.	5	21
+	+	2	49
+	+	5	39
+	+	3	42
+	+	5	0
+	+	3	0
+	+	5	21
+
+> ~/.bashrc
+	*	1504030671	0
+	"	13	18
+	^	13	19
+	.	13	18
+	+	11	16
+	+	13	18
+
+> ~/oldDotfiles/dotfiles/.vimrc
+	*	1503802510	0
+	"	1	0
 
 > ~/.stalonetrayrc
 	*	1503667369	0
 	"	37	9
 	.	37	9
 	+	37	9
-
-> ~/.xmonad/xmonad.hs
-	*	1503666092	0
-	"	5	21
-	^	11	36
-	.	11	35
-	+	16	4
-	+	10	27
-	+	2	27
-	+	16	52
-	+	14	20
-	+	16	48
-	+	3	30
-	+	6	0
-	+	4	29
-	+	8	24
-	+	16	37
-	+	20	29
-	+	20	0
-	+	20	20
-	+	20	18
-	+	20	36
-	+	20	7
-	+	20	12
-	+	20	16
-	+	20	32
-	+	20	16
-	+	20	0
-	+	20	14
-	+	20	18
-	+	20	0
-	+	20	30
-	+	20	19
-	+	20	28
-	+	20	46
-	+	20	28
-	+	20	22
-	+	20	26
-	+	20	42
-	+	20	26
-	+	20	24
-	+	20	28
-	+	5	21
-	+	8	10
-	+	9	3
-	+	9	26
-	+	16	41
-	+	20	6
-	+	20	21
-	+	16	64
-	+	10	28
-	+	9	11
-	+	10	4
-	+	9	17
-	+	16	0
-	+	10	0
-	+	16	0
-	+	11	0
-	+	16	0
-	+	13	0
-	+	11	0
-	+	13	0
-	+	10	48
-	+	21	0
-	+	10	0
-	+	15	6
-	+	10	4
-	+	13	0
-	+	12	61
-	+	23	8
-	+	17	32
-	+	9	19
-	+	11	37
-	+	9	32
-	+	18	7
-	+	9	38
-	+	18	39
-	+	19	67
-	+	9	55
-	+	16	5
-	+	13	0
-	+	18	47
-	+	11	35
 
 > ~/scripts/vollogo.sh
 	*	1503620333	0
@@ -549,13 +634,6 @@
 	+	5	5
 	+	5	0
 
-> ~/.bashrc
-	*	1503439775	0
-	"	11	16
-	^	11	17
-	.	11	16
-	+	11	16
-
 > ~/.xbindkeysrc
 	*	1503439223	0
 	"	11	0
@@ -580,16 +658,6 @@
 	+	6	0
 	+	3	0
 	+	2	0
-
-> ~/scripts/matlab.sh
-	*	1503432093	0
-	"	5	29
-	^	3	43
-	.	5	29
-	+	2	49
-	+	5	39
-	+	3	42
-	+	5	29
 
 > ~/scripts/mtest.m
 	*	1503430860	0
