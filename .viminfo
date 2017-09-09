@@ -15,7 +15,7 @@
 
 # Command Line History (newest to oldest):
 :wq
-|2,0,1504904833,,"wq"
+|2,0,1504983598,,"wq"
 :q
 |2,0,1504816503,,"q"
 :w
@@ -113,36 +113,56 @@
 # global variables:
 
 # File marks:
-'0  5  10  ~/notes.txt
-|4,48,5,10,1504904833,"~/notes.txt"
-'1  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
-|4,49,1,0,1504816503,"~/Dropbox/VM_shared/Codeforces/effi.hs"
-'2  1  0  ~/.xmonad/xmonad.hs
-|4,50,1,0,1504633346,"~/.xmonad/xmonad.hs"
-'3  55  54  ~/.xmonad/xmonad.hs
-|4,51,55,54,1504633345,"~/.xmonad/xmonad.hs"
-'4  46  36  ~/.xmonad/xmonad.hs
-|4,52,46,36,1504612671,"~/.xmonad/xmonad.hs"
+'0  25  11  ~/.gitignore
+|4,48,25,11,1504983598,"~/.gitignore"
+'1  5  10  ~/notes.txt
+|4,49,5,10,1504904833,"~/notes.txt"
+'2  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
+|4,50,1,0,1504816503,"~/Dropbox/VM_shared/Codeforces/effi.hs"
+'3  1  0  ~/.xmonad/xmonad.hs
+|4,51,1,0,1504633346,"~/.xmonad/xmonad.hs"
+'4  55  54  ~/.xmonad/xmonad.hs
+|4,52,55,54,1504633345,"~/.xmonad/xmonad.hs"
 '5  46  36  ~/.xmonad/xmonad.hs
 |4,53,46,36,1504612671,"~/.xmonad/xmonad.hs"
 '6  46  36  ~/.xmonad/xmonad.hs
 |4,54,46,36,1504612671,"~/.xmonad/xmonad.hs"
-'7  86  25  ~/.xmonad/xmonad.hs
-|4,55,86,25,1504612236,"~/.xmonad/xmonad.hs"
-'8  84  25  ~/.xmonad/xmonad.hs
-|4,56,84,25,1504612236,"~/.xmonad/xmonad.hs"
-'9  86  25  ~/.xmonad/xmonad.hs
-|4,57,86,25,1504612236,"~/.xmonad/xmonad.hs"
+'7  46  36  ~/.xmonad/xmonad.hs
+|4,55,46,36,1504612671,"~/.xmonad/xmonad.hs"
+'8  86  25  ~/.xmonad/xmonad.hs
+|4,56,86,25,1504612236,"~/.xmonad/xmonad.hs"
+'9  84  25  ~/.xmonad/xmonad.hs
+|4,57,84,25,1504612236,"~/.xmonad/xmonad.hs"
 
 # Jumplist (newest first):
+-'  25  11  ~/.gitignore
+|4,39,25,11,1504983598,"~/.gitignore"
+-'  1  0  ~/.gitignore
+|4,39,1,0,1504983585,"~/.gitignore"
 -'  5  10  ~/notes.txt
 |4,39,5,10,1504904833,"~/notes.txt"
+-'  5  10  ~/notes.txt
+|4,39,5,10,1504904833,"~/notes.txt"
+-'  1  0  ~/notes.txt
+|4,39,1,0,1504904723,"~/notes.txt"
 -'  1  0  ~/notes.txt
 |4,39,1,0,1504904723,"~/notes.txt"
 -'  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
 |4,39,1,0,1504816503,"~/Dropbox/VM_shared/Codeforces/effi.hs"
 -'  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
 |4,39,1,0,1504816503,"~/Dropbox/VM_shared/Codeforces/effi.hs"
+-'  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
+|4,39,1,0,1504816503,"~/Dropbox/VM_shared/Codeforces/effi.hs"
+-'  1  0  ~/Dropbox/VM_shared/Codeforces/effi.hs
+|4,39,1,0,1504816503,"~/Dropbox/VM_shared/Codeforces/effi.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504633346,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504633346,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504633346,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504633346,"~/.xmonad/xmonad.hs"
 -'  1  0  ~/.xmonad/xmonad.hs
 |4,39,1,0,1504633346,"~/.xmonad/xmonad.hs"
 -'  1  0  ~/.xmonad/xmonad.hs
@@ -159,6 +179,22 @@
 |4,39,55,54,1504633345,"~/.xmonad/xmonad.hs"
 -'  55  54  ~/.xmonad/xmonad.hs
 |4,39,55,54,1504633345,"~/.xmonad/xmonad.hs"
+-'  55  54  ~/.xmonad/xmonad.hs
+|4,39,55,54,1504633345,"~/.xmonad/xmonad.hs"
+-'  55  54  ~/.xmonad/xmonad.hs
+|4,39,55,54,1504633345,"~/.xmonad/xmonad.hs"
+-'  55  54  ~/.xmonad/xmonad.hs
+|4,39,55,54,1504633345,"~/.xmonad/xmonad.hs"
+-'  55  54  ~/.xmonad/xmonad.hs
+|4,39,55,54,1504633345,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504613532,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504613532,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504613532,"~/.xmonad/xmonad.hs"
+-'  1  0  ~/.xmonad/xmonad.hs
+|4,39,1,0,1504613532,"~/.xmonad/xmonad.hs"
 -'  1  0  ~/.xmonad/xmonad.hs
 |4,39,1,0,1504613532,"~/.xmonad/xmonad.hs"
 -'  1  0  ~/.xmonad/xmonad.hs
@@ -191,6 +227,54 @@
 |4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
 -'  46  36  ~/.xmonad/xmonad.hs
 |4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  46  36  ~/.xmonad/xmonad.hs
+|4,39,46,36,1504612671,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
+-'  38  26  ~/.xmonad/xmonad.hs
+|4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
 -'  38  26  ~/.xmonad/xmonad.hs
 |4,39,38,26,1504612404,"~/.xmonad/xmonad.hs"
 -'  38  26  ~/.xmonad/xmonad.hs
@@ -239,104 +323,33 @@
 |4,39,39,0,1504612297,"~/.xmonad/xmonad.hs"
 -'  39  0  ~/.xmonad/xmonad.hs
 |4,39,39,0,1504612297,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  115  58  ~/.xmonad/xmonad.hs
-|4,39,115,58,1504612281,"~/.xmonad/xmonad.hs"
--'  1  0  ~/.xmonad/xmonad.hs
-|4,39,1,0,1504612237,"~/.xmonad/xmonad.hs"
--'  1  0  ~/.xmonad/xmonad.hs
-|4,39,1,0,1504612237,"~/.xmonad/xmonad.hs"
--'  1  0  ~/.xmonad/xmonad.hs
-|4,39,1,0,1504612237,"~/.xmonad/xmonad.hs"
--'  1  0  ~/.xmonad/xmonad.hs
-|4,39,1,0,1504612237,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  86  25  ~/.xmonad/xmonad.hs
-|4,39,86,25,1504612236,"~/.xmonad/xmonad.hs"
--'  84  25  ~/.xmonad/xmonad.hs
-|4,39,84,25,1504612236,"~/.xmonad/xmonad.hs"
--'  141  0  ~/.xmonad/xmonad.hs
-|4,39,141,0,1504573465,"~/.xmonad/xmonad.hs"
--'  139  0  ~/.xmonad/xmonad.hs
-|4,39,139,0,1504573465,"~/.xmonad/xmonad.hs"
--'  141  0  ~/.xmonad/xmonad.hs
-|4,39,141,0,1504573465,"~/.xmonad/xmonad.hs"
--'  139  0  ~/.xmonad/xmonad.hs
-|4,39,139,0,1504573465,"~/.xmonad/xmonad.hs"
--'  141  0  ~/.xmonad/xmonad.hs
-|4,39,141,0,1504573465,"~/.xmonad/xmonad.hs"
--'  139  0  ~/.xmonad/xmonad.hs
-|4,39,139,0,1504573465,"~/.xmonad/xmonad.hs"
--'  141  0  ~/.xmonad/xmonad.hs
-|4,39,141,0,1504573465,"~/.xmonad/xmonad.hs"
--'  139  0  ~/.xmonad/xmonad.hs
-|4,39,139,0,1504573465,"~/.xmonad/xmonad.hs"
+-'  39  0  ~/.xmonad/xmonad.hs
+|4,39,39,0,1504612297,"~/.xmonad/xmonad.hs"
+-'  39  0  ~/.xmonad/xmonad.hs
+|4,39,39,0,1504612297,"~/.xmonad/xmonad.hs"
+-'  39  0  ~/.xmonad/xmonad.hs
+|4,39,39,0,1504612297,"~/.xmonad/xmonad.hs"
+-'  39  0  ~/.xmonad/xmonad.hs
+|4,39,39,0,1504612297,"~/.xmonad/xmonad.hs"
+-'  39  0  ~/.xmonad/xmonad.hs
+|4,39,39,0,1504612297,"~/.xmonad/xmonad.hs"
+-'  39  0  ~/.xmonad/xmonad.hs
+|4,39,39,0,1504612297,"~/.xmonad/xmonad.hs"
 
 # History of marks within files (newest to oldest):
+
+> ~/.gitignore
+	*	1504983595	0
+	"	25	11
+	^	25	12
+	.	25	11
+	+	1	12
+	+	21	19
+	+	23	8
+	+	24	13
+	+	22	3
+	+	23	7
+	+	25	11
 
 > ~/notes.txt
 	*	1504904815	0
@@ -488,18 +501,6 @@
 	+	11	16
 	+	15	18
 	+	13	24
-
-> ~/.gitignore
-	*	1504389619	0
-	"	24	7
-	^	24	13
-	.	23	7
-	+	1	12
-	+	21	19
-	+	23	8
-	+	24	13
-	+	22	3
-	+	23	7
 
 > ~/.xmobarrc
 	*	1504121817	0
