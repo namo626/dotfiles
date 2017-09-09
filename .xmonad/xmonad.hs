@@ -1,4 +1,6 @@
 import XMonad
+import XMonad.Actions.DynamicWorkspaces (removeWorkspace)
+import XMonad.Util.NamedScratchpad
 import XMonad.Prompt
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
@@ -15,44 +17,128 @@ import XMonad.Layout.Circle
 import XMonad.Layout.NoFrillsDecoration
 import XMonad.Hooks.ManageHelpers
 import XMonad.ManageHook
-import XMonad.StackSet 
 import XMonad.Actions.DynamicProjects
 import qualified Data.Map as M
+import Data.Tree
+import XMonad.Actions.TreeSelect
+import XMonad.Hooks.WorkspaceHistory
+import qualified XMonad.StackSet as W
+import XMonad.Layout.Groups
+import XMonad.Layout.PerWorkspace
 
 main = do 
     xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (dynamicProjects projects $ myConfig)
 
 
 myConfig = def {
-      manageHook = myManageHook <+> manageDocks <+> manageHook def
-    , layoutHook = myLayout
+      manageHook = namedScratchpadManageHook scratchpads <+> myManageHook <+> manageDocks <+> manageHook def
+    , layoutHook = myLayoutHook
     , handleEventHook = handleEventHook def <+> docksEventHook
     , modMask = mod4Mask
     , borderWidth = 0
-    , terminal = "terminator"
+    , terminal = myTerminal
     , keys = myKeys <+> keys def
-    , XMonad.workspaces = myWorkspaces
+    , XMonad.workspaces = toWorkspaces myWorkspaces
+    --, focusFollowsMouse = False
     } 
+
+myTerminal = "terminator"
+altMask = mod1Mask
+
+myLayoutHook = onWorkspace "misc" miscLayout
+             $ onWorkspace "docs" docsLayout
+             $ onWorkspace "homework" hwLayout
+             $ mainLayout
+
+mainLayout = windowNavigation
+                      $ addTabs shrinkText myTabTheme 
+                      $ subLayout [] (Simplest) 
+                      $ spacingWithEdge 9 
+                      $ ResizableTall 1 (3/100) (56/100) [] ||| Full 
+
+miscLayout = windowNavigation
+           $ addTabs shrinkText myTabTheme 
+           $ subLayout [] (Simplest) 
+           $ spacingWithEdge 9 
+           $ Circle ||| Full
+
+docsLayout = windowNavigation
+                      $ addTabs shrinkText myTabTheme 
+                      $ subLayout [] (Simplest) 
+                      $ spacingWithEdge 9 
+                      $ Full ||| ResizableTall 1 (3/100) (66/100) [] 
+
+hwLayout = windowNavigation
+                      $ addTabs shrinkText myTabTheme 
+                      $ subLayout [] (Simplest) 
+                      $ spacingWithEdge 9 
+                      $ ResizableTall 1 (3/100) (50/100) [] ||| Full 
+
+
+scratchpads = [ NS "thunar" "thunar" (title =? "thunar") defaultFloating]
 
 myPP = xmobarPP {ppOrder = \(ws:l:t:_) -> [ws, t]}
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-myLayout = windowNavigation $ addTabs shrinkText myTabTheme $ subLayout [] (Simplest) $ spacingWithEdge 9 $ ResizableTall 1 (3/100) (2/3) [] ||| (layoutHook def)
-
+myWorkspaces :: Forest String
 myWorkspaces = 
-    ["Web", "Terminals", "Work", "Misc"]
+    [ Node "web/conf" []
+    , Node "terminals" []
+    , Node "programming" []
+    , Node "homework" []
+    , Node "docs" []
+    , Node "matlab" []
+    , Node "misc" []
+    , Node "free" []
+    ]
 
 projects :: [Project]
 projects = 
-    [ Project { projectName = "Misc"
-              , projectDirectory = "~/Downloads"
-              , projectStartHook = Just $ do spawn "terminator"
-                                             spawn "evince" }
+    [ Project { projectName = "misc"
+              , projectDirectory = "~/"
+              , projectStartHook = Just $ do runInTerm "" "htop"
 
-    , Project { projectName = "Terminals"
-              , projectDirectory = "~/.config"
+                                                           }
+
+    , Project { projectName = "terminals"
+              , projectDirectory = "~/"
               , projectStartHook = Just $ do spawn "terminator"
                                              spawn "terminator"
-                                             safeRunInTerm "" "vim ~/.xmobarrc" }
+                                             spawn "terminator"
+              }
+
+    , Project { projectName = "web/conf"
+              , projectDirectory = "~/"
+              , projectStartHook = Just $ do spawn "firefox"
+                                             spawn "terminator"
+                                             spawn "terminator"
+              }
+
+    , Project { projectName = "programming"
+              , projectDirectory = "~/MEGA"
+              , projectStartHook = Just $ do spawn "terminator"
+                                             spawn "terminator"
+                                             spawn "terminator"
+
+              }
+
+    , Project { projectName = "docs"
+              , projectDirectory = "~/MEGA"
+              , projectStartHook = Just $ do runInTerm "" "ranger"
+
+              }
+
+    , Project { projectName = "homework"
+              , projectDirectory = "~/MEGA"
+              , projectStartHook = Just $ do spawn "firefox"
+                                             runInTerm "" "ranger"
+
+              }
+    
+    , Project { projectName = "free"
+              , projectDirectory = "~/"
+              , projectStartHook = Just $ do spawn "firefox"
+
+              }
 
     ]
                                           
@@ -80,14 +166,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList
             
             , ((modm .|. controlMask, xK_m), withFocused (sendMessage . MergeAll))
             , ((modm .|. controlMask, xK_u), withFocused (sendMessage . UnMerge))
-            --, ((modm .|. controlMask, xK_j), sendMessage $ Go D)
-            --, ((modm .|. controlMask, xK_k), sendMessage $ Go U)
-            --, ((modm .|. controlMask, xK_h), sendMessage $ Go L)
-            --, ((modm .|. controlMask, xK_l), sendMessage $ Go R)
+            , ((modm .|. altMask, xK_j), sendMessage $ Go D)
+            , ((modm .|. altMask, xK_k), sendMessage $ Go U)
+            , ((modm .|. altMask, xK_h), sendMessage $ Go L)
+            , ((modm .|. altMask, xK_l), sendMessage $ Go R)
             , ((modm, xK_s), switchProjectPrompt myPrompt)
             , ((modm, xK_slash), shiftToProjectPrompt myPrompt)
             , ((modm, xK_z), sendMessage MirrorExpand)
             , ((modm, xK_a), sendMessage MirrorShrink)
+            , ((modm, xK_t), sequence_ $ [sendMessage $ IncMasterN 1, sendMessage $ pullGroup D, sendMessage $ IncMasterN (-1)])
+            , ((modm, xK_f), treeselectWorkspace tsDefaultConfig myWorkspaces W.greedyView)
+            , ((modm, xK_n), namedScratchpadAction scratchpads "thunar")
+            , ((modm .|. shiftMask, xK_BackSpace), removeWorkspace)
             ]
 
 myPrompt = def

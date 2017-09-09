@@ -1,0 +1,5 @@
+POD modes with 2 pt coreelations
+do that with O_t
+compare that with U from SVD
+HIL schmid 
+rali papers

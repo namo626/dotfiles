@@ -53,7 +53,8 @@ dropbox &
 megasync &
 xbindkeys
 compton -b
-feh --bg-scale ~/Pictures/himalayans.jpg &
+feh --bg-scale ~/Pictures/himalayas.jpg &
 stalonetray &
+nm-applet &
 wmname LG3D
 exec xmonad
