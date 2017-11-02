@@ -1,5 +1,13 @@
 import XMonad
-import XMonad.Actions.DynamicWorkspaces (removeWorkspace)
+import XMonad.Hooks.EwmhDesktops hiding (fullscreenEventHook)
+import XMonad.Prompt.Shell
+import XMonad.Layout.Hidden
+import XMonad.Layout.DragPane
+import XMonad.Actions.FloatKeys
+import XMonad.Actions.DynamicWorkspaces 
+import XMonad.Actions.CycleWS
+import XMonad.Actions.CycleRecentWS
+import XMonad.Actions.Navigation2D
 import XMonad.Util.NamedScratchpad
 import XMonad.Prompt
 import XMonad.Layout.ResizableTile
@@ -23,161 +31,290 @@ import Data.Tree
 import XMonad.Actions.TreeSelect
 import XMonad.Hooks.WorkspaceHistory
 import qualified XMonad.StackSet as W
-import XMonad.Layout.Groups
+import XMonad.Layout.Groups.Helpers
 import XMonad.Layout.PerWorkspace
+import XMonad.Layout.Grid
+import XMonad.Layout.Fullscreen
+import XMonad.Hooks.InsertPosition
+import XMonad.Layout.Groups.Examples
+import XMonad.Layout.ThreeColumns
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.TrackFloating
 
 main = do 
-    xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (dynamicProjects projects $ myConfig)
+{-    xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (withNavigation2DConfig def $ dynamicProjects projects $ fullscreenSupport $ myConfig)
+-}
+  --d <- spawnPipe "xmobar ~/.xmobarrc2"
+  spawn $ "pkill polybar"
+  spawn $ "polybar example"
+  xmonad $ ewmh $ myConfig
 
+-----------------------------------------------------------------------
+--myLogHook h = dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ def
+--  { ppOutput = hPutStrLn h
+--  , ppCurrent = xmobarColor "yellow" "" . wrap "" ""
+--  , ppTitle = xmobarColor "green" "" . shorten 10 
+--  , ppOrder = \(ws:l:t:_) -> [ws, t]
+--  }
+
+--myPP = namedScratchpadFilterOutWorkspacePP 
+--     $ xmobarPP { ppOrder = \(ws:l:t:_) -> [ws, t]
+--                , ppCurrent = xmobarColor "yellow" "" . wrap "" ""
+--                , ppTitle = xmobarColor "green" "" . (shorten 20)
+--                }
 
 myConfig = def {
-      manageHook = namedScratchpadManageHook scratchpads <+> myManageHook <+> manageDocks <+> manageHook def
-    , layoutHook = myLayoutHook
-    , handleEventHook = handleEventHook def <+> docksEventHook
+      manageHook = fullscreenManageHook <+> myManageHook <+> {-insertPosition Below Newer <+>-}manageDocks <+> manageHook def
+    , handleEventHook = handleEventHook def <+> docksEventHook <+> fullscreenEventHook
     , modMask = mod4Mask
-    , borderWidth = 0
     , terminal = myTerminal
+    , layoutHook = avoidStruts myLayoutHook
     , keys = myKeys <+> keys def
     , XMonad.workspaces = toWorkspaces myWorkspaces
+    , borderWidth = 3
+    , focusedBorderColor = "#b8bb26"
+    , normalBorderColor = "#282828"
+    --, logHook = myLogHook h
+ 
     --, focusFollowsMouse = False
+    --, startupHook = spawn "stalonetray"
     } 
-
+myManageHook = (composeAll
+                [ name =? "Terminator Preferences" --> ((insertPosition Above Newer) <+> doCenterFloat)
+                , isDialog --> ((insertPosition Above Newer) <+> doCenterFloat)
+                , insertPosition Below Newer
+                , className =? "Thunar" --> doCenterFloat]) <+> namedScratchpadManageHook myScratchpads
+                where name = stringProperty "WM_NAME"
+ 
 myTerminal = "terminator"
 altMask = mod1Mask
 
-myLayoutHook = onWorkspace "misc" miscLayout
-             $ onWorkspace "docs" docsLayout
-             $ onWorkspace "homework" hwLayout
-             $ mainLayout
-
-mainLayout = windowNavigation
-                      $ addTabs shrinkText myTabTheme 
-                      $ subLayout [] (Simplest) 
-                      $ spacingWithEdge 9 
-                      $ ResizableTall 1 (3/100) (56/100) [] ||| Full 
-
-miscLayout = windowNavigation
-           $ addTabs shrinkText myTabTheme 
-           $ subLayout [] (Simplest) 
-           $ spacingWithEdge 9 
-           $ Circle ||| Full
-
-docsLayout = windowNavigation
-                      $ addTabs shrinkText myTabTheme 
-                      $ subLayout [] (Simplest) 
-                      $ spacingWithEdge 9 
-                      $ Full ||| ResizableTall 1 (3/100) (66/100) [] 
-
-hwLayout = windowNavigation
-                      $ addTabs shrinkText myTabTheme 
-                      $ subLayout [] (Simplest) 
-                      $ spacingWithEdge 9 
-                      $ ResizableTall 1 (3/100) (50/100) [] ||| Full 
+myLayoutHook =
+    onWorkspace "misc" miscLayout 
+    $ onWorkspace "web" webLayout
+    $ onWorkspace "docs" docsLayout
+    $ onWorkspace "media" mediaLayout
+    $ onWorkspaces ["conf", "matlab"] (trackFloating mainLayout)
+    otherLayout
 
 
-scratchpads = [ NS "thunar" "thunar" (title =? "thunar") defaultFloating]
+myScratchpads = 
+    [ NS "terminal" ("terminator --role=scratchpad") (stringProperty "WM_WINDOW_ROLE" =? "scratchpad") doCenterFloat
+    , NS "slack" "slack" (stringProperty "WM_NAME" =? "Slack - Honors Physics II (Fall 2017)") doCenterFloat
+    , NS "ranger" ("terminator --role=ranger -e ranger") (stringProperty "WM_WINDOW_ROLE" =? "ranger") (customFloating $ W.RationalRect 0.05 0.05 0.4 0.4)
+    , NS "notes" "emacs" (stringProperty "WM_NAME" =? "emacs@namo") nonFloating
+    ]
 
-myPP = xmobarPP {ppOrder = \(ws:l:t:_) -> [ws, t]}
+--subLayout has problem with trackFLoating?
+mainModifier = 
+    mkToggle (single FULL)
+    . windowNavigation
+    . addTabs shrinkText myTabTheme 
+    . subLayout [] (Simplest ||| Full ||| dragPane Horizontal 0.5 0.5) 
+    . spacing 7 
+    . hiddenWindows
+
+webModifier = 
+    mkToggle (single FULL)
+    . windowNavigation
+    . spacingWithEdge 7
+    . trackFloating 
+
+mainLayout = mainModifier (ResizableTall 1 (3/100) (56/100) [] ||| Full)
+otherLayout = mainModifier (ResizableTall 1 (3/100) (50/100) [] ||| Full)
+webLayout = webModifier (Full ||| Tall 1 (3/100) (50/100))
+docsLayout = 
+    mkToggle (single FULL)
+    $ windowNavigation
+    $ spacingWithEdge 7
+    $ trackFloating
+    $ (Tall 1 (3/100) (1/2)) ||| Full
+
+miscLayout = 
+    mkToggle (single FULL)
+    $ windowNavigation
+    $ addTabs shrinkText myTabTheme 
+    $ subLayout [] (Simplest) 
+    $ spacingWithEdge 9 
+    $ Circle ||| Full
+
+mediaLayout =
+    mkToggle (single FULL)
+    $ windowNavigation
+    $ spacingWithEdge 7
+    $ trackFloating
+    $ (GridRatio (3/3) ||| Full)
+
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+
 myWorkspaces :: Forest String
 myWorkspaces = 
-    [ Node "web/conf" []
-    , Node "terminals" []
-    , Node "programming" []
-    , Node "homework" []
+    [ Node "conf" []
+    , Node "terms" []
     , Node "docs" []
     , Node "matlab" []
-    , Node "misc" []
-    , Node "free" []
+    , Node "lisp" []
+    , Node "web" []
+    --, Node "web" []
     ]
 
-projects :: [Project]
-projects = 
-    [ Project { projectName = "misc"
-              , projectDirectory = "~/"
-              , projectStartHook = Just $ do runInTerm "" "htop"
-
-                                                           }
-
-    , Project { projectName = "terminals"
-              , projectDirectory = "~/"
-              , projectStartHook = Just $ do spawn "terminator"
-                                             spawn "terminator"
-                                             spawn "terminator"
-              }
-
-    , Project { projectName = "web/conf"
-              , projectDirectory = "~/"
-              , projectStartHook = Just $ do spawn "firefox"
-                                             spawn "terminator"
-                                             spawn "terminator"
-              }
-
-    , Project { projectName = "programming"
-              , projectDirectory = "~/MEGA"
-              , projectStartHook = Just $ do spawn "terminator"
-                                             spawn "terminator"
-                                             spawn "terminator"
-
-              }
-
-    , Project { projectName = "docs"
-              , projectDirectory = "~/MEGA"
-              , projectStartHook = Just $ do runInTerm "" "ranger"
-
-              }
-
-    , Project { projectName = "homework"
-              , projectDirectory = "~/MEGA"
-              , projectStartHook = Just $ do spawn "firefox"
-                                             runInTerm "" "ranger"
-
-              }
-    
-    , Project { projectName = "free"
-              , projectDirectory = "~/"
-              , projectStartHook = Just $ do spawn "firefox"
-
-              }
-
-    ]
+--projects :: [Project]
+--projects = 
+--    [ Project { projectName = "misc"
+--              , projectDirectory = "~/"
+--              , projectStartHook = Just $ do runInTerm "" "htop"
+--              }
+--
+--    , Project { projectName = "terms"
+--              , projectDirectory = "~/"
+--              , projectStartHook = Just $ do spawn "terminator"
+--              }
+--
+--    , Project { projectName = "conf"
+--              , projectDirectory = "~/"
+--              , projectStartHook = Just $ do spawn "firefox"
+--                                             spawn "terminator"
+--              }
+--
+--   -- , Project { projectName = "prgm"
+--   --           , projectDirectory = "~/MEGA"
+--   --           , projectStartHook = Just $ do spawn "terminator"
+--   --                                          spawn "terminator"
+--   --                                          spawn "terminator"
+--
+--   --           }
+--
+--    , Project { projectName = "docs"
+--              , projectDirectory = "~/MEGA"
+--              , projectStartHook = Just $ do spawn "okular"
+--
+--              }
+--
+--   -- , Project { projectName = "hw"
+--   --           , projectDirectory = "~/MEGA"
+--   --           , projectStartHook = Just $ do spawn "firefox"
+--   --                                          runInTerm "" "ranger"
+--
+--   --           }
+--    
+--    , Project { projectName = "web"
+--              , projectDirectory = "~/"
+--              , projectStartHook = Just $ do spawn "firefox"
+--
+--              }
+--
+--    ]
                                           
+myTabTheme = def { fontName = "xft:xos4 Terminus:size=13"
+                , decoHeight = 23
+                 , activeTextColor = "#ffffff" --"#fbf1c7"
+                 , inactiveTextColor = "#ebdbb2"
+                 , inactiveColor = "#504945"
+                 , inactiveBorderColor = "#504945"
+                 , activeColor = blue --"#665c54"
+                 , activeBorderColor = blue --"#665c54"
+                 }
+
+topBarTheme = def
+    { inactiveBorderColor   = "#3c3836"
+    , inactiveColor         = "#3c3836"
+    , inactiveTextColor     = "#3c3836"
+    , activeBorderColor     = blue --"#458588"
+    , activeColor           = blue --"#458588"
+    , activeTextColor       = blue
+    , urgentBorderColor     = red
+    , urgentTextColor       = yellow
+    , decoHeight            = 15
+    }
 
 
-myManageHook = composeAll 
-                [ name =? "Terminator Preferences" --> doCenterFloat
-                , className =? "Thunar" --> doCenterFloat]
-                where name = stringProperty "WM_NAME"
-         
-myTabTheme = def
-    { fontName = "xft:xos4 Terminus:size=15"
---    , activeColor           = blue
---    , inactiveColor         = base02
---    , activeBorderColor     = blue
---    , inactiveBorderColor   = base02
---    , activeTextColor       = base03
---    , inactiveTextColor     = base00
-}
+--keybindings        
+
+--keys to overwrite
+--newKeys x = foldr M.delete (keys def x) (keysToRemove x)
+--keysToRemove :: XConfig Layout -> [(KeyMask, KeySym)]
+--keysToRemove x = M.fromList 
+--    [ (modMask, xk_Tab)
+--    ]
+
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList
             [ ((modm .|. controlMask, xK_h), sendMessage $ pullGroup L)
             , ((modm .|. controlMask, xK_l), sendMessage $ pullGroup R)
             , ((modm .|. controlMask, xK_k), sendMessage $ pullGroup U)
             , ((modm .|. controlMask, xK_j), sendMessage $ pullGroup D)
-            
+            , ((modm, xK_d), spawn "rofi -show run -font \"Droid Sans Mono for Powerline 20\"")
+            , ((modm .|. altMask, xK_l), spawn "i3lock -c 000000") 
             , ((modm .|. controlMask, xK_m), withFocused (sendMessage . MergeAll))
             , ((modm .|. controlMask, xK_u), withFocused (sendMessage . UnMerge))
-            , ((modm .|. altMask, xK_j), sendMessage $ Go D)
-            , ((modm .|. altMask, xK_k), sendMessage $ Go U)
-            , ((modm .|. altMask, xK_h), sendMessage $ Go L)
-            , ((modm .|. altMask, xK_l), sendMessage $ Go R)
-            , ((modm, xK_s), switchProjectPrompt myPrompt)
-            , ((modm, xK_slash), shiftToProjectPrompt myPrompt)
+            , ((modm .|. controlMask, xK_i), withFocused (sendMessage . UnMergeAll))
+            --, ((altMask, xK_j), sendMessage $ Go D)
+            --, ((altMask, xK_k), sendMessage $ Go U)
+            --, ((altMask, xK_h), sendMessage $ Go L)
+            --, ((altMask, xK_l), sendMessage $ Go R)
+--            , ((modm, xK_s), switchProjectPrompt myPrompt)
+--            , ((modm, xK_slash), shiftToProjectPrompt myPrompt)
             , ((modm, xK_z), sendMessage MirrorExpand)
             , ((modm, xK_a), sendMessage MirrorShrink)
-            , ((modm, xK_t), sequence_ $ [sendMessage $ IncMasterN 1, sendMessage $ pullGroup D, sendMessage $ IncMasterN (-1)])
-            , ((modm, xK_f), treeselectWorkspace tsDefaultConfig myWorkspaces W.greedyView)
-            , ((modm, xK_n), namedScratchpadAction scratchpads "thunar")
+            , ((modm, xK_g), sequence_ $ [sendMessage $ IncMasterN 1, sendMessage $ pullGroup D, sendMessage $ IncMasterN (-1)])
+            -- caused white glitch, ((altMask, xK_f), treeselectWorkspace tsDefaultConfig myWorkspaces W.greedyView)
+            --, ((modm, xK_n), namedScratchpadAction scratchpads "thunar")
+           -- , ((modm .|. shiftMask, xK_BackSpace), removeWorkspace)
+            , ((modm, xK_n), moveToNewGroupUp)
+            , ((modm, xK_p), splitGroup)
+            , ((modm, xK_grave), sequence_ $ [sendMessage ToggleStruts, sendMessage $ Toggle FULL])
+            , ((modm .|. shiftMask, xK_Tab), sequence_ $ [withFocused (sendMessage . UnMerge), sendMessage $ pullGroup L]) 
+            , ((controlMask .|. shiftMask, xK_Tab), sequence_ $ [withFocused (sendMessage . UnMerge), sendMessage $ pullGroup D]) 
+
+            --easy swapping of windows
+            , ((modm .|. shiftMask, xK_h), windowSwap L True)
+            , ((modm .|. shiftMask, xK_l), windowSwap R True)
+            , ((modm .|. shiftMask, xK_k), windowSwap U True)
+            , ((modm .|. shiftMask, xK_j), windowSwap D True)
+            , ((modm .|. altMask, xK_j), windows W.swapDown)
+            , ((modm .|. altMask, xK_k), windows W.swapUp)
+            , ((altMask, xK_j), windowGo D True)
+            , ((altMask, xK_k), windowGo U True)
+            , ((altMask, xK_h), windowGo L True)
+            , ((altMask, xK_l), windowGo R True)
+            , ((altMask, xK_Tab), windows W.focusDown)
+
+            --easy switching of workspaces
+            , ((modm, xK_Left), prevWS)
+            , ((modm, xK_Right), nextWS)
+            --, ((altMask, xK_Tab), cycleRecentWS [xK_Alt_L] xK_Tab xK_grave)
+            , ((modm, xK_Tab), toggleWS' ["NSP"])
+
+            --hiding windows
+            , ((modm, xK_backslash), withFocused hideWindow)
+            , ((modm .|. shiftMask, xK_backslash), popNewestHiddenWindow)
+
+            --scratchpads
+            , ((modm .|. controlMask, xK_n), namedScratchpadAction myScratchpads "terminal")
+            , ((modm .|. controlMask, xK_b), namedScratchpadAction myScratchpads "slack")
+            , ((modm .|. controlMask, xK_r), namedScratchpadAction myScratchpads "ranger")
+            , ((modm .|. controlMask, xK_v), namedScratchpadAction myScratchpads "notes")
+
+            --moving floating windows
+            --, ((modm,               xK_Down     ), withFocused (keysResizeWindow (-5,-5) (1,1)))
+            --, ((modm,               xK_Up     ), withFocused (keysResizeWindow (5,5) (1,1)))
+            --dynamic workspaces
             , ((modm .|. shiftMask, xK_BackSpace), removeWorkspace)
+            , ((modm , xK_s      ), selectWorkspace myPrompt)
+            , ((modm, xK_slash                    ), withWorkspace myPrompt (windows . W.shift))
+            , ((modm .|. shiftMask, xK_r      ), renameWorkspace def)
+            , ((modm, xK_w), addWorkspacePrompt myPrompt)
+            , ((modm, xK_e), appendWorkspacePrompt myPrompt)
+
+            --prompt
+            , ((modm .|. altMask, xK_Return), shellPrompt myPrompt)
+
+            -- sublayouts
+            , ((modm .|. altMask, xK_space), toSubl NextLayout)
+            , ((modm .|. altMask, xK_j), windows W.swapDown)
+            , ((modm .|. altMask, xK_k), windows W.swapUp)
+            , ((modm .|. altMask, xK_comma), toSubl (IncMasterN 1))
+            , ((modm .|. altMask, xK_period), toSubl (IncMasterN (-1)))
             ]
 
 myPrompt = def
@@ -203,15 +340,4 @@ blue    = "#268bd2"
 cyan    = "#2aa198"
 green = "#859900"
 
-topBarTheme = def
-    { inactiveBorderColor   = base03
-    , inactiveColor         = base03
-    , inactiveTextColor     = base03
-    , activeBorderColor     = blue
-    , activeColor           = blue
-    , activeTextColor       = blue
-    , urgentBorderColor     = red
-    , urgentTextColor       = yellow
-    , decoHeight            = 10
-    }
 
