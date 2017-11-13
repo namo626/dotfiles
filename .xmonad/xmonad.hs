@@ -47,8 +47,10 @@ main = do
 -}
   --d <- spawnPipe "xmobar ~/.xmobarrc2"
   spawn $ "pkill polybar"
+  spawn $ "sleep 2"
   spawn $ "polybar example"
   xmonad $ ewmh $ myConfig
+   
 
 -----------------------------------------------------------------------
 --myLogHook h = dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ def
@@ -80,12 +82,26 @@ myConfig = def {
     --, focusFollowsMouse = False
     --, startupHook = spawn "stalonetray"
     } 
-myManageHook = (composeAll
-                [ name =? "Terminator Preferences" --> ((insertPosition Above Newer) <+> doCenterFloat)
-                , isDialog --> ((insertPosition Above Newer) <+> doCenterFloat)
-                , insertPosition Below Newer
-                , className =? "Thunar" --> doCenterFloat]) <+> namedScratchpadManageHook myScratchpads
+
+myManageHook = (composeOne
+                [ name =? "Terminator Preferences" -?> ((insertPosition Above Newer) <+> doCenterFloat)
+                , isDialog -?> ((insertPosition Above Newer) <+> doCenterFloat)
+                , className =? "Eog" -?> (insertPosition Below Older)
+                , className =? "MATLAB R2017b - academic use" -?> (insertPosition Below Older)
+                , className =? "feh" -?> (insertPosition Below Older)
+                , className =? "okular" -?> (insertPosition Below Older)
+                , className =? "Mirage" -?> (insertPosition Below Older)
+                , className =? "Thunar" -?> doCenterFloat 
+                , (return True) -?> (insertPosition Below Newer)])
+                <+> namedScratchpadManageHook myScratchpads
                 where name = stringProperty "WM_NAME"
+
+--myManageHook = (composeOne
+--                [ --name =? "Terminator Preferences" --> ((insertPosition Above Newer) <+> doCenterFloat)
+--                 isDialog --> ((insertPosition Above Newer) <+> doCenterFloat)
+--                , insertPosition Below Newer
+--                , className =? "Thunar" --> doCenterFloat]) <+> namedScratchpadManageHook myScratchpads
+--                where name = stringProperty "WM_NAME"
  
 myTerminal = "terminator"
 altMask = mod1Mask
