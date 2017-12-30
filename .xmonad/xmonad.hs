@@ -1,5 +1,13 @@
 import XMonad
+import Data.Word
+import qualified Data.List as L
+import XMonad.Util.NamedWindows (getName)
 import XMonad.Hooks.EwmhDesktops hiding (fullscreenEventHook)
+import XMonad.Layout.TwoPane
+import XMonad.Actions.GroupNavigation
+import XMonad.Actions.WindowBringer
+import XMonad.Actions.CycleWindows (cycleRecentWindows)
+import XMonad.Actions.RotSlaves
 import XMonad.Prompt.Shell
 import XMonad.Layout.Hidden
 import XMonad.Layout.DragPane
@@ -46,10 +54,10 @@ main = do
 {-    xmonad =<< statusBar "xmobar" myPP toggleStrutsKey (withNavigation2DConfig def $ dynamicProjects projects $ fullscreenSupport $ myConfig)
 -}
   --d <- spawnPipe "xmobar ~/.xmobarrc2"
-  spawn $ "pkill polybar"
-  spawn $ "sleep 2"
-  spawn $ "polybar example"
-  xmonad $ ewmh $ myConfig
+--  spawn $ "pkill polybar"
+--  spawn $ "sleep 2"
+  spawn $ "~/scripts/polybar.sh"
+  xmonad $ ewmh $ docks $ myConfig
    
 
 -----------------------------------------------------------------------
@@ -78,6 +86,7 @@ myConfig = def {
     , focusedBorderColor = "#b8bb26"
     , normalBorderColor = "#282828"
     --, logHook = myLogHook h
+    , logHook = historyHook
  
     --, focusFollowsMouse = False
     --, startupHook = spawn "stalonetray"
@@ -108,7 +117,7 @@ altMask = mod1Mask
 
 myLayoutHook =
     onWorkspace "misc" miscLayout 
-    $ onWorkspace "web" webLayout
+    $ onWorkspace "web" docsLayout
     $ onWorkspace "docs" docsLayout
     $ onWorkspace "media" mediaLayout
     $ onWorkspaces ["conf", "matlab"] (trackFloating mainLayout)
@@ -129,31 +138,29 @@ mainModifier =
     . addTabs shrinkText myTabTheme 
     . subLayout [] (Simplest ||| Full ||| dragPane Horizontal 0.5 0.5) 
     . spacing 7 
-    . hiddenWindows
 
-webModifier = 
-    mkToggle (single FULL)
-    . windowNavigation
-    . spacingWithEdge 7
-    . trackFloating 
+--webModifier = 
+--    mkToggle (single FULL)
+--    . windowNavigation
+--    . spacingWithEdge 7
+--    . trackFloating 
 
 mainLayout = mainModifier (ResizableTall 1 (3/100) (56/100) [] ||| Full)
 otherLayout = mainModifier (ResizableTall 1 (3/100) (50/100) [] ||| Full)
-webLayout = webModifier (Full ||| Tall 1 (3/100) (50/100))
+--webLayout = webModifier (Full ||| Tall 1 (3/100) (50/100))
 docsLayout = 
     mkToggle (single FULL)
     $ windowNavigation
     $ spacingWithEdge 7
     $ trackFloating
-    $ (Tall 1 (3/100) (1/2)) ||| Full
+    $ TwoPane (3/100) (1/2) ||| (Tall 1 (3/100) (1/2)) ||| Full
 
 miscLayout = 
     mkToggle (single FULL)
     $ windowNavigation
-    $ addTabs shrinkText myTabTheme 
-    $ subLayout [] (Simplest) 
-    $ spacingWithEdge 9 
-    $ Circle ||| Full
+    $ spacingWithEdge 7
+    $ trackFloating
+    $ (Grid ||| Full ||| Circle)
 
 mediaLayout =
     mkToggle (single FULL)
@@ -170,6 +177,8 @@ myWorkspaces =
     , Node "terms" []
     , Node "docs" []
     , Node "matlab" []
+    , Node "media" []
+    , Node "misc" []
     , Node "lisp" []
     , Node "web" []
     --, Node "web" []
@@ -244,6 +253,48 @@ topBarTheme = def
     , decoHeight            = 15
     }
 
+--Custom functions
+--Alt-Tab behavior using GroupNavigation
+sameWorkSpace = do
+  nw <- ask
+  liftX $ do
+    ws <- gets windowset
+    return $ maybe False (== W.currentTag ws) (W.findTag nw ws)
+
+currentWsWindows :: Eq a => W.StackSet i l a s sd -> [a]
+currentWsWindows = W.integrate' . W.stack . W.workspace . W.current
+
+newtype Win = Win String
+instance XPrompt Win where
+  showXPrompt (Win _) = "select window: "
+
+windowPrompt :: XPConfig -> ([(String, Window)] -> String -> X ()) -> X ()
+windowPrompt conf job = do
+  ss <- gets windowset
+  let currentWindows = currentWsWindows ss -- :: [Window]
+  winNames <- mapM (fmap (convertSpaces '_' . show) . getName) $ currentWindows --all window names in current workspace with spaces removed
+  mkXPrompt (Win "") conf (mkComplFunFromList' $ winNames) (job $ zip winNames currentWindows )
+
+selectWindow :: XPConfig -> X ()
+selectWindow conf = windowPrompt conf job where --job takes a string (window name) and use focusWindow to focus
+   job wList wName =
+    case lookup wName wList of
+      Nothing -> return ()
+      Just win -> windows $ W.focusWindow win
+
+convertSpaces :: Char -> String -> String
+convertSpaces new = map (\c -> if c == ' ' then new else c)
+
+appendNewLine :: String -> String
+appendNewLine s = s ++ ['\n']
+
+myPrompt2 = def
+  { font = "xft:Droid Sans Mono for Powerline:size=13"
+  , position = CenteredAt (1/2) (3/10)
+  , height = 40
+  , searchPredicate = L.isSubsequenceOf
+  , maxComplRows = Just (fromIntegral 10 :: Word32)
+}
 
 --keybindings        
 
@@ -260,6 +311,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList
             , ((modm .|. controlMask, xK_k), sendMessage $ pullGroup U)
             , ((modm .|. controlMask, xK_j), sendMessage $ pullGroup D)
             , ((modm, xK_d), spawn "rofi -show run -font \"Droid Sans Mono for Powerline 20\"")
+            , ((modm, xK_e), spawn "emacsclient -c")
+            , ((modm, xK_f), gotoMenu)
+            , ((modm, xK_v), selectWindow myPrompt2)
             , ((modm .|. altMask, xK_l), spawn "i3lock -c 000000") 
             , ((modm .|. controlMask, xK_m), withFocused (sendMessage . MergeAll))
             , ((modm .|. controlMask, xK_u), withFocused (sendMessage . UnMerge))
@@ -279,21 +333,23 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList
             , ((modm, xK_n), moveToNewGroupUp)
             , ((modm, xK_p), splitGroup)
             , ((modm, xK_grave), sequence_ $ [sendMessage ToggleStruts, sendMessage $ Toggle FULL])
+            , ((altMask, xK_Tab), nextMatch History sameWorkSpace)
             , ((modm .|. shiftMask, xK_Tab), sequence_ $ [withFocused (sendMessage . UnMerge), sendMessage $ pullGroup L]) 
             , ((controlMask .|. shiftMask, xK_Tab), sequence_ $ [withFocused (sendMessage . UnMerge), sendMessage $ pullGroup D]) 
 
             --easy swapping of windows
-            , ((modm .|. shiftMask, xK_h), windowSwap L True)
-            , ((modm .|. shiftMask, xK_l), windowSwap R True)
-            , ((modm .|. shiftMask, xK_k), windowSwap U True)
-            , ((modm .|. shiftMask, xK_j), windowSwap D True)
+            , ((modm .|. shiftMask, xK_h), windowSwap L False)
+            , ((modm .|. shiftMask, xK_l), windowSwap R False)
+            --, ((modm .|. shiftMask, xK_k), windowSwap U True)
+            --, ((modm .|. shiftMask, xK_j), windowSwap D True)
             , ((modm .|. altMask, xK_j), windows W.swapDown)
             , ((modm .|. altMask, xK_k), windows W.swapUp)
-            , ((altMask, xK_j), windowGo D True)
-            , ((altMask, xK_k), windowGo U True)
-            , ((altMask, xK_h), windowGo L True)
-            , ((altMask, xK_l), windowGo R True)
-            , ((altMask, xK_Tab), windows W.focusDown)
+            , ((altMask, xK_j), windowGo D False)
+            , ((altMask, xK_k), windowGo U False)
+            , ((altMask, xK_h), windowGo L False)
+            , ((altMask, xK_l), windowGo R False)
+            --, ((altMask, xK_Tab), windows W.focusDown)
+            , ((altMask, xK_m), windows W.focusMaster)
 
             --easy switching of workspaces
             , ((modm, xK_Left), prevWS)
@@ -309,7 +365,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList
             , ((modm .|. controlMask, xK_n), namedScratchpadAction myScratchpads "terminal")
             , ((modm .|. controlMask, xK_b), namedScratchpadAction myScratchpads "slack")
             , ((modm .|. controlMask, xK_r), namedScratchpadAction myScratchpads "ranger")
-            , ((modm .|. controlMask, xK_v), namedScratchpadAction myScratchpads "notes")
+            --, ((modm .|. controlMask, xK_v), namedScratchpadAction myScratchpads "notes")
 
             --moving floating windows
             --, ((modm,               xK_Down     ), withFocused (keysResizeWindow (-5,-5) (1,1)))
@@ -331,6 +387,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList
             , ((modm .|. altMask, xK_k), windows W.swapUp)
             , ((modm .|. altMask, xK_comma), toSubl (IncMasterN 1))
             , ((modm .|. altMask, xK_period), toSubl (IncMasterN (-1)))
+
+            --twopane + rotslaves
+            , ((altMask .|. shiftMask, xK_k), rotSlavesUp)
+            , ((altMask .|. shiftMask, xK_j), rotSlavesDown)
             ]
 
 myPrompt = def
